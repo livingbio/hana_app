@@ -1,8 +1,12 @@
-.PHONY: www
+.PHONY: serve emulate
 
 prepare:
 	npm install -g cordova
-sim:
+emulate:
 	cordova emulate ios
-www:
+serve:
 	cordova serve
+
+#shortcuts
+emu: emulate
+s: serve
