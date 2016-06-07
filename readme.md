@@ -1,24 +1,36 @@
+## Requirements
+
+*   Node.js 4.4.5+
+*   Cordova 6.2.0+
+
+
 ## Development
 
-refere Makefile. 
+refere Makefile.
 
-before start. make sure you install nodejs
+before start. make sure you have [nodejs](https://nodejs.org/en/) installed
 
-than do the following
+after that, open terminal and do the following commands
 
 
-    make prepare
-
+    npm install -g cordova
 
 
 ### launch emulator
 
+For temporary development:
 
-    make emu
+
+    cordova emulate browser
+
+
+For final development:
+
+
+    cordova emulate ios
 
 
 ### launch development browser
 
 
-	make serve
-	
+	cordova serve
