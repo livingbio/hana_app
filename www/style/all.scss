@@ -19,6 +19,7 @@ $opacity: 0.69;
     background:$color-orange;
     color: $color-white;
     margin: -12px;
+    padding: 12px;
 }
 
 .Text-main{
@@ -32,6 +33,10 @@ $opacity: 0.69;
 
 .Bar{
     margin-bottom: 10px;
+    text-align: center;
+}
+
+.Nav-title{
     font-size:17px;
     text-align: center;
 }
@@ -102,6 +107,10 @@ $opacity: 0.69;
     margin-left: -12px;
 }
 
+.Form-item{
+    margin-bottom: 20px;
+}
+
 .Login-title{
     margin-top: 30px;
     font-size: 36px;
@@ -118,11 +127,8 @@ $opacity: 0.69;
     margin-top: 80%;
 }
 
-.Form-item{
-    margin-bottom: 20px;
-}
 
-.Input-style{
+.Login-input{
     font-size: 18px;
     color: #8c90a0;
     background-color: $color-blue;
@@ -133,7 +139,7 @@ $opacity: 0.69;
     box-shadow: none;
 }
 
-.Input-style:focus{
+.Login-input:focus{
     border-bottom: 2px solid #515976;
     box-shadow: none;
 }
@@ -152,5 +158,66 @@ $opacity: 0.69;
 
 .Login-button:hover, .Login-button:active:hover {
     background-color: $color-orange;
+}
 
+.Filter-form{
+    margin-top: 10%;
+}
+
+.Filter-input:focus{
+    border: none;
+    box-shadow: none;
+}
+
+.Filter-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-form input::-moz-placeholder { /* Firefox 19+ */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-form input:-ms-input-placeholder { /* IE 10+ */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-form input:-moz-placeholder { /* Firefox 18- */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-ButtonRow{
+    margin-top: 15%;
+}
+
+.Filter-Button{
+    background: $background-DataBlock-shown;
+    border-radius:2px;
+    color: $color-white;
+    font-size:14px;
+    padding: 6% 45%;
+    border: 1px solid transparent;
+    text-shadow: none;
+}
+
+.Filter-Button--cancel{
+    @extend .Filter-Button;
+    background: transparent;
+    color: $background-DataBlock-shown;
+    border-color: $background-DataBlock-shown;
+}
+
+.Filter-Button:hover, .Filter-Button:active:hover {
+    background-color: $background-DataBlock-shown;
+    color: $color-white;
+    border-color: transparent;
+}
+
+.Filter-Button--cancel:hover, .Filter-Button--cancel:active:hover{
+    background-color: $color-orange;
+    color: $background-DataBlock-shown;
+    border-color: $background-DataBlock-shown;
 }

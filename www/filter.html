@@ -63,16 +63,43 @@
     <div class="Background-orange">
         <div class="container">
 
-            <form class="form-inline">
-              <div class="form-group">
-                <label for="exampleInputName2">Name</label>
-                <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail2">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-              </div>
-              <button type="submit" class="btn btn-default">Send invitation</button>
+            <div class="Nav-title">
+                篩選器
+            </div>
+
+            <form class="Filter-form">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryYear">Year</label>
+                            <input type="text" class="form-control Filter-input" id="queryYear" placeholder="年">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryMonth">Month</label>
+                            <input type="text" class="form-control Filter-input" id="queryMonth" placeholder="月">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryCompany">Company</label>
+                            <input type="text" class="form-control Filter-input" id="queryCompany" placeholder="公司">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row Filter-ButtonRow">
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-default Filter-Button--cancel">取消</button>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-default Filter-Button">確定</button>
+                    </div>
+                </div>
             </form>
 
         </div>
