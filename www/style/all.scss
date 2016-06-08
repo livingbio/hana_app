@@ -7,6 +7,7 @@ $color-red: #fe3824;
 $color-white: #ffffff;
 $background-DataBlock: #3e4660;
 $background-DataBlock-shown: #515976;
+$opacity: 0.69;
 
 .Background-blue{
     background: $color-blue;
@@ -21,7 +22,7 @@ $background-DataBlock-shown: #515976;
 }
 
 .Text-main{
-    opacity:0.69;
+    opacity: $opacity;
     font-size:12px;
 }
 
@@ -94,4 +95,62 @@ $background-DataBlock-shown: #515976;
 .DataChart-currentTime{
     font-size: 14px;
     padding-left: 5px;
+}
+
+.SapLogo{
+    margin-top: 25px;
+    margin-left: -12px;
+}
+
+.Login-title{
+    margin-top: 30px;
+    font-size: 36px;
+    font-weight: bold;
+    color: $color-orange;
+}
+
+.Login-description{
+    font-size: 14px;
+    opacity: $opacity;
+}
+
+.Login-form{
+    margin-top: 80%;
+}
+
+.Form-item{
+    margin-bottom: 20px;
+}
+
+.Input-style{
+    font-size: 18px;
+    color: #8c90a0;
+    background-color: $color-blue;
+    border: none;
+    border-bottom: 2px solid #515976;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.Input-style:focus{
+    border-bottom: 2px solid #515976;
+    box-shadow: none;
+}
+
+.Login-button{
+    background: $color-orange;
+    border-radius:2px;
+    padding: 3% 39% 3% 39%;
+    font-weight: 600;
+    font-size:20px;
+    color:#343c59;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.Login-button:hover, .Login-button:active:hover {
+    background-color: $color-orange;
+
 }
