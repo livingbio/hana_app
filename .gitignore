@@ -1,3 +1,5 @@
 .idea
 plugins
 platforms
+node_modules/
+www/dist
