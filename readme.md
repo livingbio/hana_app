@@ -14,14 +14,19 @@ after that, open terminal and do the following commands
 
 
     npm install -g cordova
-
+    npm install -g webpack
+    npm install
 
 ### launch emulator
 
 For temporary development:
 
 
-    cordova emulate browser
+    // cordova emulate browser
+    cd www
+    webpack --progress --colors --watch
+    open browser directly
+
 
 
 For final development:
@@ -34,3 +39,5 @@ For final development:
 
 
 	cordova serve
+
+
