@@ -7,6 +7,9 @@ emulate:
 serve:
 	cordova serve
 
+watch:
+	cd www; webpack --progress --colors --watch
+
 #shortcuts
 emu: emulate
 s: serve

@@ -1,0 +1,29 @@
+{
+  "name": "hana",
+  "version": "0.0.1",
+  "description": "for hana",
+  "main": "index.js",
+  "dependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1",
+    "chai": "^3.5.0",
+    "echarts": "^3.1.9"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livingbio/hana_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/livingbio/hana_app/issues"
+  },
+  "homepage": "https://github.com/livingbio/hana_app#readme"
+}
