@@ -10,6 +10,8 @@
     "echarts": "^3.1.9"
   },
   "devDependencies": {
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
