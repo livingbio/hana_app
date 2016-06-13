@@ -1,7 +1,7 @@
 module.exports = {
-    entry: "./js/hana.js",
+    entry: "./www/js/hana.jsx",
     output: {
-        path: 'dist',
+        path: './www/dist',
         filename: "bundle.js"
     },
     module: {
@@ -9,7 +9,16 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loaders: ["style", "css", "sass"]
+            },
+            {
+                test: /\.js|jsx$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
             }
         ]
+
     }
 };
