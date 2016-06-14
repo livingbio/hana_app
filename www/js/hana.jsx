@@ -10,8 +10,6 @@ var render = require('react-dom').render;
 //module.exports = CommentBox;
 
 
-
-
 render(
     <Button/>,
     document.getElementById('react_main')
