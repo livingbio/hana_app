@@ -102,14 +102,102 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+/*.Background-blue{
+    background:#2e354d;
+    color: #ffffff;
+    padding: 12px;
+}
+
+.Background-orange{
+    background:#ffbf21;
+    color: #ffffff;
+    padding: 12px;
+}
+
+.Text-main{
+    opacity:0.69;
+    font-size:12px;
+}
+
+.Text-orange{
+    color:#ffbf21;
+}
+
+.Bar{
+    margin-bottom: 10px;
+    font-size:17px;
+    text-align: center;
+}
+
+.DataArea{
+    margin-bottom: 15px;
+}
+
+.DataBlock{
+    padding: 6px;
+    background:#3e4660;
+    border-radius:2px;
+}
+
+.DataBlock.is-shown{
+    background:#515976;
+}
+
+.DataBlock-col{
+    padding: 4px;
+}
+
+.DataBlock-number{
+    margin-top: 30px;
+    font-size:18px;
+}
+
+.DataBlock-arrow{
+    margin-top: 50px;
+}
+
+.DataChart-bar-up{
+    width: 150px;
+    border: 1px solid #7bdc93;
+    margin-top: 8px;
+}
+
+.DataChart-bar-normal{
+    width: 150px;
+    border: 2px solid #ffffff;
+    margin-top: 8px;
+}
+
+.DataChart-bar-down{
+    width: 150px;
+    border: 1px solid #fe3824;
+    margin-top: 8px;
+}
+
+.DataChart-item{
+    margin-top: 10px;
+}
+
+.DataChart-title{
+    background:#1d2338;
+    border-radius:2px;
+    padding: 3px;
+    width: 55px;
+}
+
+.DataChart-currentTime{
+    font-size: 14px;
+    padding-left: 5px;
+}*/
