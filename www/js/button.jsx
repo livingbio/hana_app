@@ -1,4 +1,4 @@
-import React from 'react';
+var React = require('react');
 
 
 var Button = React.createClass({
@@ -9,4 +9,4 @@ var Button = React.createClass({
     }
 });
 
-export {Button};
+module.exports = Button;

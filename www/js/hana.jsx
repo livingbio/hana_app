@@ -1,15 +1,19 @@
 
 require("../style/all.scss");
 
-import React from 'react';
-import { render } from 'react-dom';
-import { Button } from "./button.jsx"
+//var Button = require("./button.jsx");
+var React = require('react');
+var Button = require("./button.jsx");
+var render = require('react-dom').render;
+
+
+//module.exports = CommentBox;
 
 
 
 
 render(
-    <Button/>,
+    Button,
     document.getElementById('main')
 );
 
