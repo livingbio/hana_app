@@ -13,7 +13,7 @@ var render = require('react-dom').render;
 
 
 render(
-    Button,
+    <Button/>,
     document.getElementById('main')
 );
 
