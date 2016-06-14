@@ -14,9 +14,5 @@ var render = require('react-dom').render;
 
 render(
     <Button/>,
-    document.getElementById('main')
+    document.getElementById('react_main')
 );
-
-
-
-
