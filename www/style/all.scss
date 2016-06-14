@@ -1,4 +1,97 @@
-$color: yellow;
-body {
-    background: $color;
+@import "variable";
+
+$color-blue: #2e354d;
+$color-orange: #ffbf21;
+$color-green: #7bdc93;
+$color-red: #fe3824;
+$color-white: #ffffff;
+$background-DataBlock: #3e4660;
+$background-DataBlock-shown: #515976;
+
+.Background-blue{
+    background: $color-blue;
+    color: $color-white;
+    padding: 12px;
+}
+
+.Background-orange{
+    background:$color-orange;
+    color: $color-white;
+    padding: 12px;
+}
+
+.Text-main{
+    opacity:0.69;
+    font-size:12px;
+}
+
+.Text-orange{
+    color: $color-orange;
+}
+
+.Bar{
+    margin-bottom: 10px;
+    font-size:17px;
+    text-align: center;
+}
+
+.DataArea{
+    margin-bottom: 15px;
+}
+
+.DataBlock{
+    padding: 6px;
+    background: $background-DataBlock;
+    border-radius:2px;
+}
+
+.DataBlock.is-shown{
+    background: $background-DataBlock-shown;
+}
+
+.DataBlock-col{
+    padding: 4px;
+}
+
+.DataBlock-number{
+    margin-top: 30px;
+    font-size:18px;
+}
+
+.DataBlock-arrow{
+    margin-top: 50px;
+}
+
+.DataChart-bar-up{
+    width: 150px;
+    border: 1px solid $color-green;
+    margin-top: 8px;
+}
+
+.DataChart-bar-normal{
+    width: 150px;
+    border: 2px solid $color-white;
+    margin-top: 8px;
+}
+
+.DataChart-bar-down{
+    width: 150px;
+    border: 1px solid $color-red;
+    margin-top: 8px;
+}
+
+.DataChart-item{
+    margin-top: 10px;
+}
+
+.DataChart-title{
+    background:#1d2338;
+    border-radius:2px;
+    padding: 3px;
+    width: 55px;
+}
+
+.DataChart-currentTime{
+    font-size: 14px;
+    padding-left: 5px;
 }
