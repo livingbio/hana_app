@@ -13,8 +13,10 @@ function main() {
     $('.Toggle-filter').click(function() {
         if ($('#filter').is(':visible')) {
             $('#filter').hide();
+            $('#main').show();
         }else{
             $('#filter').show();
+            $('#main').hide();
         }
     });
 
