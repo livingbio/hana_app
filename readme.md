@@ -23,8 +23,7 @@ For temporary development:
 
 
     // cordova emulate browser
-    cd www
-    webpack --progress --colors --watch
+    npm run watch
     open browser directly
 
 
