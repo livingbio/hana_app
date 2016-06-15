@@ -7,6 +7,7 @@ $color-red: #fe3824;
 $color-white: #ffffff;
 $background-DataBlock: #3e4660;
 $background-DataBlock-shown: #515976;
+$opacity: 0.69;
 
 .Background-blue{
     background: $color-blue;
@@ -21,7 +22,7 @@ $background-DataBlock-shown: #515976;
 }
 
 .Text-main{
-    opacity:0.69;
+    opacity: $opacity;
     font-size:12px;
 }
 
@@ -31,6 +32,10 @@ $background-DataBlock-shown: #515976;
 
 .Bar{
     margin-bottom: 10px;
+    text-align: center;
+}
+
+.Nav-title{
     font-size:17px;
     text-align: center;
 }
@@ -63,19 +68,16 @@ $background-DataBlock-shown: #515976;
 }
 
 .DataChart-bar-up{
-    width: 150px;
     border: 1px solid $color-green;
     margin-top: 8px;
 }
 
 .DataChart-bar-normal{
-    width: 150px;
     border: 2px solid $color-white;
     margin-top: 8px;
 }
 
 .DataChart-bar-down{
-    width: 150px;
     border: 1px solid $color-red;
     margin-top: 8px;
 }
@@ -94,4 +96,150 @@ $background-DataBlock-shown: #515976;
 .DataChart-currentTime{
     font-size: 14px;
     padding-left: 5px;
+}
+
+.SapLogo{
+    margin-top: 25px;
+    margin-left: -12px;
+}
+
+.Form-item{
+    margin-bottom: 20px;
+}
+
+.Login-title{
+    margin-top: 30px;
+    font-size: 36px;
+    font-weight: bold;
+    color: $color-orange;
+}
+
+.Login-description{
+    font-size: 14px;
+    opacity: $opacity;
+}
+
+.Login-form{
+    margin-top: 80%;
+}
+
+
+.Login-input{
+    font-size: 18px;
+    color: #8c90a0;
+    background-color: $color-blue;
+    border: none;
+    border-bottom: 2px solid #515976;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.Login-input:focus{
+    border-bottom: 2px solid #515976;
+    box-shadow: none;
+}
+
+.Login-button{
+    background: $color-orange;
+    border-radius:2px;
+    padding: 3% 39% 3% 39%;
+    font-weight: 600;
+    font-size:20px;
+    color:#343c59;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.Login-button:hover, .Login-button:active:hover {
+    background-color: $color-orange;
+}
+
+.Filter{
+    margin: -12px;
+    margin-bottom: 24px;
+}
+
+.Filter-form{
+    margin-top: 10%;
+}
+
+.Filter-input:focus{
+    border: none;
+    box-shadow: none;
+}
+
+.Filter-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-form input::-moz-placeholder { /* Firefox 19+ */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-form input:-ms-input-placeholder { /* IE 10+ */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-form input:-moz-placeholder { /* Firefox 18- */
+    color: $color-orange;
+    font-weight: bold;
+}
+
+.Filter-ButtonRow{
+    margin-top: 15%;
+}
+
+.Filter-Button{
+    background: $background-DataBlock-shown;
+    border-radius:2px;
+    color: $color-white;
+    font-size:14px;
+    padding: 6% 45%;
+    border: 1px solid transparent;
+    text-shadow: none;
+}
+
+.Filter-Button--cancel{
+    @extend .Filter-Button;
+    background: transparent;
+    color: $background-DataBlock-shown;
+    border-color: $background-DataBlock-shown;
+}
+
+.Filter-Button:hover, .Filter-Button:active:hover {
+    background-color: $background-DataBlock-shown;
+    color: $color-white;
+    border-color: transparent;
+}
+
+.Filter-Button--cancel:hover, .Filter-Button--cancel:active:hover{
+    background-color: $color-orange;
+    color: $background-DataBlock-shown;
+    border-color: $background-DataBlock-shown;
+}
+
+#sideBar{
+    background-color:#20263b;
+    margin: -12px;
+    margin-left: -282px;
+    height: 100%;
+    position: fixed;
+    width:270px;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.Profile{
+    margin-bottom: 30px;
+}
+
+.Profile-ID{
+    color: $color-orange;
+    padding-left: 24px;
+    padding-top: 2px;
 }

@@ -44,15 +44,76 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <title>Hana</title>
 </head>
 
 <body class="Background-blue">
 
-    <div id="react_main"></div>
-<script src="libs/echarts.min.js"></script>
-<script src="dist/bundle.js" charset="utf-8"></script>
+    <!-- <div class="app">
+        <h1>PhoneGap</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div> -->
+
+    <div class="Background-orange">
+        <div class="container">
+
+            <div class="Nav-title">
+                篩選器
+            </div>
+
+            <form class="Filter-form">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryYear">Year</label>
+                            <input type="text" class="form-control Filter-input" id="queryYear" placeholder="年">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryMonth">Month</label>
+                            <input type="text" class="form-control Filter-input" id="queryMonth" placeholder="月">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryCompany">Company</label>
+                            <input type="text" class="form-control Filter-input" id="queryCompany" placeholder="公司">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row Filter-ButtonRow">
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-default Filter-Button--cancel">取消</button>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-default Filter-Button">確定</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    app.initialize();
+    </script>
+
+    <script src="libs/echarts.min.js"></script>
+    <script src="dist/bundle.js" charset="utf-8"></script>
 
 
 </body>

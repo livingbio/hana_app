@@ -38,6 +38,8 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -50,7 +52,66 @@
     <title>Hana</title>
 </head>
 
-<body class="Background-blue">
+<body class="Background-blue" id="Body">
+    <!-- <div id="sideBar">
+        <div class="row Profile">
+            <div class="col-xs-1">
+                <img src="img/icon_profile@3x.png" width="26" height="26"/>
+            </div>
+            <div class="col-xs-10 Profile-ID">
+                GliaCloud
+            </div>
+        </div>
+
+        <div class="">
+            Log out
+        </div>
+    </div> -->
+
+    <!-- <div id="filter" class="Background-orange Filter">
+        <div class="container">
+
+            <div class="Nav-title">
+                篩選器
+            </div>
+
+            <form class="Filter-form">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryYear">Year</label>
+                            <input type="text" class="form-control Filter-input" id="queryYear" placeholder="年">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryMonth">Month</label>
+                            <input type="text" class="form-control Filter-input" id="queryMonth" placeholder="月">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group Form-item">
+                            <label class="sr-only" for="queryCompany">Company</label>
+                            <input type="text" class="form-control Filter-input" id="queryCompany" placeholder="公司">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row Filter-ButtonRow">
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-default Filter-Button--cancel">取消</button>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-default Filter-Button">確定</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div> -->
 
     <!-- <div class="app">
         <h1>PhoneGap</h1>
@@ -60,200 +121,202 @@
         </div>
     </div> -->
 
-    <div class="Bar">
-        <div class="row">
-            <div class="col-xs-2">
-                <img src="img/icon-bar@3x.png" width="22" height="14" />
-            </div>
-
-            <div class="col-xs-4 col-xs-offset-2">
-                銷售趨勢
-            </div>
-
-            <div class="col-xs-2 col-xs-offset-2">
-                <img src="img/icon-filter@3x.png" width="22" height="14" />
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container">
-
-        <div class="row DataArea">
-            <div class="col-xs-6 DataBlock-col">
-                <div class="DataBlock">
-
-                    <div class="pull-right DataBlock-arrow">
-                        <img src="img/icon-down@3x.png" width="19" height="19" />
-                    </div>
-
-                    <div class="Text-main">
-                        成本
-                    </div>
-
-                    <div class="DataBlock-number">
-                        $62,919,12
-                    </div>
-
+    <!-- <div id="main">
+        <div class="Bar">
+            <div class="row">
+                <div class="col-xs-2 Toggle-sideBar">
+                    <img src="img/icon-bar@3x.png" width="22" height="14" />
                 </div>
-            </div>
 
-            <div class="col-xs-6 DataBlock-col">
-                <div class="DataBlock">
-
-                    <div class="pull-right DataBlock-arrow">
-                        <img src="img/icon-down@3x.png" width="19" height="19" />
-                    </div>
-
-                    <div class="Text-main">
-                        收入
-                    </div>
-
-                    <div class="DataBlock-number">
-                        $62,919,120
-                    </div>
+                <div class="col-xs-4 col-xs-offset-2 Nav-title">
+                    銷售趨勢
                 </div>
-            </div>
 
-            <div class="col-xs-6 DataBlock-col">
-                <div class="DataBlock">
-
-                    <div class="pull-right DataBlock-arrow">
-                        <img src="img/icon-down@3x.png" width="19" height="19" />
-                    </div>
-
-                    <div class="Text-main">
-                        毛利
-                    </div>
-
-                    <div class="DataBlock-number">
-                        $62,919,120
-                    </div>
+                <div class="col-xs-2 col-xs-offset-2 Toggle-filter">
+                    <img src="img/icon-filter@3x.png" width="22" height="14" />
                 </div>
-            </div>
 
-            <div class="col-xs-6 DataBlock-col">
-                <div class="DataBlock">
-
-                    <div class="pull-right DataBlock-arrow">
-                        <img src="img/icon-down@3x.png" width="19" height="19" />
-                    </div>
-
-                    <div class="Text-main">
-                        銷量
-                    </div>
-
-                    <div class="DataBlock-number">
-                        $62,919
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-6 DataBlock-col">
-                <div class="DataBlock is-shown">
-
-                    <div class="pull-right DataBlock-arrow">
-                        <img src="img/icon-down@3x.png" width="19" height="19" />
-                    </div>
-
-                    <div class="Text-main">
-                        毛利率
-                    </div>
-
-                    <div class="DataBlock-number">
-                        40.94%
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-6 DataBlock-col">
-                <div class="DataBlock">
-
-                    <div class="pull-right DataBlock-arrow">
-                        <img src="img/icon-down@3x.png" width="19" height="19" />
-                    </div>
-
-                    <div class="Text-main">
-                        總和_毛利率
-                    </div>
-
-                    <div class="DataBlock-number">
-                        40.94%
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearfix">
             </div>
         </div>
-        <!--End of DataArea row-->
 
-        <div class="">
-            <div class="row Text-main">
+        <div class="container">
 
-                <div class="col-xs-2">
-                    年/月
+            <div class="row DataArea" id="DataArea">
+                <div class="col-xs-6 DataBlock-col">
+                    <div class="DataBlock">
+
+                        <div class="pull-right DataBlock-arrow">
+                            <img src="img/icon-down@3x.png" width="19" height="19" />
+                        </div>
+
+                        <div class="Text-main">
+                            成本
+                        </div>
+
+                        <div class="DataBlock-number">
+                            123
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="col-xs-4 col-xs-offset-3 text-center">
-                    <div class="DataChart-title">
-                        毛利率
+                <div class="col-xs-6 DataBlock-col">
+                    <div class="DataBlock">
+
+                        <div class="pull-right DataBlock-arrow">
+                            <img src="img/icon-down@3x.png" width="19" height="19" />
+                        </div>
+
+                        <div class="Text-main">
+                            收入
+                        </div>
+
+                        <div class="DataBlock-number">
+                            123
+                        </div>
                     </div>
+                </div>
+
+                <div class="col-xs-6 DataBlock-col">
+                    <div class="DataBlock">
+
+                        <div class="pull-right DataBlock-arrow">
+                            <img src="img/icon-down@3x.png" width="19" height="19" />
+                        </div>
+
+                        <div class="Text-main">
+                            毛利
+                        </div>
+
+                        <div class="DataBlock-number">
+                            123
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 DataBlock-col">
+                    <div class="DataBlock">
+
+                        <div class="pull-right DataBlock-arrow">
+                            <img src="img/icon-down@3x.png" width="19" height="19" />
+                        </div>
+
+                        <div class="Text-main">
+                            銷量
+                        </div>
+
+                        <div class="DataBlock-number">
+                            123
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 DataBlock-col">
+                    <div class="DataBlock is-shown">
+
+                        <div class="pull-right DataBlock-arrow">
+                            <img src="img/icon-down@3x.png" width="19" height="19" />
+                        </div>
+
+                        <div class="Text-main">
+                            毛利率
+                        </div>
+
+                        <div class="DataBlock-number">
+                            123
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 DataBlock-col">
+                    <div class="DataBlock">
+
+                        <div class="pull-right DataBlock-arrow">
+                            <img src="img/icon-down@3x.png" width="19" height="19" />
+                        </div>
+
+                        <div class="Text-main">
+                            總和_毛利率
+                        </div>
+
+                        <div class="DataBlock-number">
+                            123
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix">
                 </div>
             </div>
 
-            <div class="row DataChart-item">
-                <div class="col-xs-3" style="display:inline-block;">
-                    <img src="img/icon-current@3x.png" width="6" height="8" />
-                    <span class="DataChart-currentTime">
-                        2016/5
-                    </span>
-                </div>
+            <div>
+                <div class="row Text-main">
 
-                <div class="col-xs-9">
-                    <div class="DataChart-bar-normal">
+                    <div class="col-xs-2">
+                        年/月
+                    </div>
+
+                    <div class="col-xs-4 col-xs-offset-3 text-center">
+                        <div class="DataChart-title">
+                            毛利率
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row DataChart-item">
-                <div class="col-xs-2">
+                <div class="row DataChart-item">
+                    <div class="col-xs-3" style="display:inline-block;">
+                        <img src="img/icon-current@3x.png" width="6" height="8" />
+                        <span class="DataChart-currentTime">
+                            2016/5
+                        </span>
+                    </div>
+
+                    <div class="col-xs-9">
+                        <div class="DataChart-bar-normal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row DataChart-item">
+                    <div class="col-xs-2">
                         2016/4
-                </div>
+                    </div>
 
-                <div class="col-xs-10">
-                    <div class="DataChart-bar-up">
+                    <div class="col-xs-10">
+                        <div class="DataChart-bar-up">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row DataChart-item">
-                <div class="col-xs-2">
-                    2016/3
-                </div>
+                <div class="row DataChart-item">
+                    <div class="col-xs-2">
+                        2016/3
+                    </div>
 
-                <div class="col-xs-10">
-                    <div class="DataChart-bar-up">
+                    <div class="col-xs-10">
+                        <div class="DataChart-bar-up">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row DataChart-item">
-                <div class="col-xs-2">
-                    2016/2
-                </div>
+                <div class="row DataChart-item">
+                    <div class="col-xs-2">
+                        2016/2
+                    </div>
 
-                <div class="col-xs-10">
-                    <div class="DataChart-bar-down">
+                    <div class="col-xs-10">
+                        <div class="DataChart-bar-down">
+                        </div>
                     </div>
                 </div>
+
+                <div class="clearfix">
+                </div>
             </div>
 
-            <div class="clearfix">
-            </div>
         </div>
 
-    </div>
+    </div> -->
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -261,11 +324,12 @@
     app.initialize();
     </script>
 
-    <!--
-    <script src="libs/echarts.min.js"></script>
-    <script src="dist/bundle.js" charset="utf-8"></script>
-    -->
 
+    <script src="libs/echarts.min.js"></script>
+    <!-- <script type="text/javascript" src="js/hana_echart.js"></script> -->
+
+    <script src="dist/bundle.js" charset="utf-8"></script>
+    <script src="js/hana_jquery.js"></script>
 
 </body>
 
