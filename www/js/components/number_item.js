@@ -106,6 +106,9 @@ class Number_Item extends React.Component{
         return(
             <div>
                 {blocks}
+
+                <div className="clearfix">
+                </div>
             </div>
         );
     }
