@@ -1,6 +1,6 @@
 var React = require('react');
 
-var profile_id = 'GliaCloud';
+var ProfileID = 'GliaCloud';
 
 class Drawer extends React.Component{
     render(){
@@ -11,7 +11,7 @@ class Drawer extends React.Component{
                         <img src="img/icon_profile@3x.png" width="26" height="26"/>
                     </div>
                     <div className="col-xs-10 Profile-ID">
-                        {profile_id}
+                        {ProfileID}
                     </div>
                 </div>
 

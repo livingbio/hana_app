@@ -128,7 +128,7 @@ var items = [
     }
 ];
 
-class Line_Charts extends React.Component{
+class LineCharts extends React.Component{
     render(){
         var blocks = [];
         for (var i = 1; i < items.length; i++) {
@@ -149,4 +149,4 @@ class Line_Charts extends React.Component{
     }
 }
 
-module.exports = Line_Charts;
+module.exports = LineCharts;

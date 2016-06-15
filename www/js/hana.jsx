@@ -2,11 +2,11 @@ require("../style/all.scss");
 
 var React = require('react');
 var Button = require("./button.jsx");
-var Number_Item = require("./components/number_item.js");
-var Line_Charts = require("./components/line_charts.js");
-var Nav_Bar = require("./components/nav_bar.js");
-var Filter = require("./components/filter.js");
-var Drawer = require("./components/drawer.js");
+var Number_Item = require("./components/number_item.jsx");
+var Line_Charts = require("./components/line_charts.jsx");
+var Nav_Bar = require("./components/nav_bar.jsx");
+var Filter = require("./components/filter.jsx");
+var Drawer = require("./components/drawer.jsx");
 var render = require('react-dom').render;
 
 

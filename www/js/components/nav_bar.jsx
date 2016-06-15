@@ -1,6 +1,6 @@
 var React = require('react');
 
-class Nav_Bar extends React.Component{
+class NavBar extends React.Component{
     render(){
         return(
             <div className="Bar">
@@ -23,4 +23,4 @@ class Nav_Bar extends React.Component{
     }
 }
 
-module.exports = Nav_Bar;
+module.exports = NavBar;
