@@ -96,7 +96,7 @@ var items = [
     }
 ];
 
-class Number_Item extends React.Component{
+class NumberItem extends React.Component{
     render(){
         var blocks = [];
         for (var i = 0; i < items.length; i++) {
@@ -114,4 +114,4 @@ class Number_Item extends React.Component{
     }
 }
 
-module.exports = Number_Item;
+module.exports = NumberItem;
