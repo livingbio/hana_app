@@ -20,6 +20,11 @@ function main() {
         }
     });
 
+    $('.DataBlock').click(function () {
+        $('.DataBlock').removeClass('is-shown');
+        $(this).addClass('is-shown');
+    });
+
 }
 
 $(document).ready(main);

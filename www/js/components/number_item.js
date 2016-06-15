@@ -50,11 +50,11 @@ class DataBlock extends React.Component{
             <div className="col-xs-6 DataBlock-col">
                 <div className="DataBlock">
 
-                    <Arrow arrow={this.props.arrow}/>
+                    <Arrow arrow={this.props.item.arrow}/>
 
-                    <Label label={this.props.label}/>
+                    <Label label={this.props.item.label}/>
 
-                    <Number number={this.props.number} kind={this.props.kind}/>
+                    <Number number={this.props.item.number} kind={this.props.item.kind}/>
 
                 </div>
             </div>
@@ -100,11 +100,11 @@ class Number_Item extends React.Component{
     render(){
         var blocks = [];
         for (var i = 0; i < items.length; i++) {
-            blocks.push(<DataBlock arrow={items[i].arrow} label={items[i].label} number={items[i].number} kind={items[i].kind}/>);
+            blocks.push(<DataBlock item={items[i]}/>);
         }
 
         return(
-            <div>
+            <div className="row DataArea" id="DataArea">
                 {blocks}
 
                 <div className="clearfix">
