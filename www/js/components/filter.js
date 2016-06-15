@@ -14,21 +14,21 @@ class Filter extends React.Component{
                         <div className="row">
                             <div className="col-xs-6">
                                 <div className="form-group Form-item">
-                                    <label className="sr-only" for="queryYear">Year</label>
+                                    <label className="sr-only" htmlFor="queryYear">Year</label>
                                     <input type="text" className="form-control Filter-input" id="queryYear" placeholder="年"/>
                                 </div>
                             </div>
 
                             <div className="col-xs-6">
                                 <div className="form-group Form-item">
-                                    <label className="sr-only" for="queryMonth">Month</label>
+                                    <label className="sr-only" htmlFor="queryMonth">Month</label>
                                     <input type="text" className="form-control Filter-input" id="queryMonth" placeholder="月"/>
                                 </div>
                             </div>
 
                             <div className="col-xs-12">
                                 <div className="form-group Form-item">
-                                    <label className="sr-only" for="queryCompany">Company</label>
+                                    <label className="sr-only" htmlFor="queryCompany">Company</label>
                                     <input type="text" className="form-control Filter-input" id="queryCompany" placeholder="公司"/>
                                 </div>
                             </div>
