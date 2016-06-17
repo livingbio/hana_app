@@ -1,6 +1,7 @@
 require("../style/all.scss");
 
 var React = require('react');
+var $ = require("jquery");
 var Button = require("./button.jsx");
 var Number_Item = require("./components/number_item.jsx");
 var Line_Charts = require("./components/line_charts.jsx");

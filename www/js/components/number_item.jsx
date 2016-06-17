@@ -1,5 +1,39 @@
 var React = require('react');
-// var $ = require("jquery");
+var $ = require("jquery");
+
+// var items = [
+//     {
+//         'number': 263,
+//         'label': '成本',
+//         'kind': 'money',
+//         'arrow': 'up',
+//     }, {
+//         'number': 456,
+//         'label': '收入',
+//         'kind': 'money',
+//         'arrow': 'down',
+//     }, {
+//         'number': 478,
+//         'label': '毛利',
+//         'kind': 'money',
+//         'arrow': 'up',
+//     }, {
+//         'number': 231,
+//         'label': '銷量',
+//         'kind': 'money',
+//         'arrow': 'down',
+//     }, {
+//         'number': 845,
+//         'label': '毛利率',
+//         'kind': 'percent',
+//         'arrow': 'down',
+//     }, {
+//         'number': 561,
+//         'label': '總和_毛利率',
+//         'kind': 'percent',
+//         'arrow': 'up',
+//     }
+// ];
 
 class Arrow extends React.Component{
     render(){
@@ -61,40 +95,6 @@ class DataBlock extends React.Component{
         );
     }
 }
-
-var items = [
-    {
-        'number': 263,
-        'label': '成本',
-        'kind': 'money',
-        'arrow': 'up',
-    }, {
-        'number': 456,
-        'label': '收入',
-        'kind': 'money',
-        'arrow': 'down',
-    }, {
-        'number': 478,
-        'label': '毛利',
-        'kind': 'money',
-        'arrow': 'up',
-    }, {
-        'number': 231,
-        'label': '銷量',
-        'kind': 'money',
-        'arrow': 'down',
-    }, {
-        'number': 845,
-        'label': '毛利率',
-        'kind': 'percent',
-        'arrow': 'down',
-    }, {
-        'number': 561,
-        'label': '總和_毛利率',
-        'kind': 'percent',
-        'arrow': 'up',
-    }
-];
 
 class NumberItem extends React.Component{
     render(){
