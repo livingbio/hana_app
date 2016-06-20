@@ -40,6 +40,12 @@ For unit test:
 
 please read document about enzyme and see example in test.spec.jsx
 
+Tool used in ut:
+
+    * chai, assertion  http://chaijs.com/api/bdd/
+    * enzyme: render and inspect reactjs rendered dom
+    * mocha: test framework && test runner 
+
 
 ### launch development browser
 
