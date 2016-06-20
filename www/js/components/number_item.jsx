@@ -1,5 +1,6 @@
 var React = require('react');
-// var $ = require("jquery");
+var $ = require("jquery");
+
 
 class Arrow extends React.Component{
     render(){
@@ -17,15 +18,36 @@ class Arrow extends React.Component{
     }
 }
 
+
 class Label extends React.Component{
     render(){
+        var label= '';
+        switch (this.props.label) {
+            case 'SourceCost':
+                label = '成本';
+                break;
+            case 'Amt':
+                label = '收入';
+                break;
+            case 'GrossMargin':
+                label = '毛利';
+                break;
+            case 'GrossMarginRate':
+                label = '毛利率';
+                break;
+            default:
+                label = '測試';
+                break;
+        }
+
         return(
             <div className="Text-main">
-                {this.props.label}
+                {label}
             </div>
         );
     }
 }
+
 
 class Number extends React.Component{
     render(){
@@ -43,6 +65,7 @@ class Number extends React.Component{
         );
     }
 }
+
 
 class DataBlock extends React.Component{
     render(){
@@ -62,45 +85,15 @@ class DataBlock extends React.Component{
     }
 }
 
-var items = [
-    {
-        'number': 263,
-        'label': '成本',
-        'kind': 'money',
-        'arrow': 'up',
-    }, {
-        'number': 456,
-        'label': '收入',
-        'kind': 'money',
-        'arrow': 'down',
-    }, {
-        'number': 478,
-        'label': '毛利',
-        'kind': 'money',
-        'arrow': 'up',
-    }, {
-        'number': 231,
-        'label': '銷量',
-        'kind': 'money',
-        'arrow': 'down',
-    }, {
-        'number': 845,
-        'label': '毛利率',
-        'kind': 'percent',
-        'arrow': 'down',
-    }, {
-        'number': 561,
-        'label': '總和_毛利率',
-        'kind': 'percent',
-        'arrow': 'up',
-    }
-];
 
 class NumberItem extends React.Component{
     render(){
+        var items = this.props.dataList[0].detail;
         var blocks = [];
-        for (var i = 0; i < items.length; i++) {
-            blocks.push(<DataBlock item={items[i]}/>);
+
+        for (var key in items) {
+            blocks.push(<DataBlock item={items[key]}/>);
+            // console.log(items[key]);
         }
 
         return(
@@ -113,5 +106,6 @@ class NumberItem extends React.Component{
         );
     }
 }
+
 
 module.exports = NumberItem;

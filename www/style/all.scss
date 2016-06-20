@@ -73,7 +73,7 @@ $opacity: 0.69;
 }
 
 .DataChart-bar-normal{
-    border: 2px solid $color-white;
+    border: 1px solid $color-white;
     margin-top: 8px;
 }
 
@@ -82,19 +82,24 @@ $opacity: 0.69;
     margin-top: 8px;
 }
 
+.DataBlock-bar-is-shown{
+    border-width: 2px;
+}
+
 .DataChart-item{
     margin-top: 10px;
+    font-size: 12px;
 }
 
 .DataChart-title{
     background:#1d2338;
     border-radius:2px;
     padding: 3px;
-    width: 55px;
+    min-width: 55px;
 }
 
 .DataChart-currentTime{
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 5px;
 }
 

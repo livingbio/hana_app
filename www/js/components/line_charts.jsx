@@ -1,17 +1,35 @@
 var React = require('react');
 
+
 class Label extends React.Component{
     render(){
+        var label= '';
+        switch (this.props.label) {
+            case 'SourceCost':
+                label = '成本';
+                break;
+            case 'Amt':
+                label = '收入';
+                break;
+            case 'GrossMargin':
+                label = '毛利';
+                break;
+            case 'GrossMarginRate':
+                label = '毛利率';
+                break;
+            default:
+                label = '測試';
+                break;
+        }
+
         return(
             <div className="row Text-main">
-
                 <div className="col-xs-2">
                     年/月
                 </div>
-
                 <div className="col-xs-4 col-xs-offset-3 text-center">
                     <div className="DataChart-title">
-                        毛利率
+                        {label}
                     </div>
                 </div>
             </div>
@@ -19,28 +37,61 @@ class Label extends React.Component{
     }
 }
 
+
+function formatYYMM(yymm) {
+    var yymmList = yymm.toString().split("");
+    var year = '';
+    var month = '';
+    for (var i = 0; i < yymmList.length; i++) {
+        if (i < 4) {
+            year += yymmList[i];
+        }else{
+            month += yymmList[i];
+        }
+    }
+    return {
+        'year': year,
+        'month': month,
+    };
+}
+
+
+function barType(arrow){
+    var bar = '';
+    switch (arrow) {
+        case 'up':
+            bar = 'DataChart-bar-up';
+            break;
+        case 'down':
+            bar = 'DataChart-bar-down';
+            break;
+        default:
+            bar = 'DataChart-bar-normal';
+            break;
+    }
+    return bar;
+}
+
+
 class CurrentChart extends React.Component{
     render(){
-        var bar = '';
-        if (this.props.item.status == 'up') {
-            bar = 'DataChart-bar-up';
-        }else if (this.props.item.status == 'down') {
-            bar = 'DataChart-bar-down';
-        }else {
-            bar = 'DataChart-bar-normal';
-        }
+        var bar = barType(this.props.item.arrow);
+        bar += ' DataBlock-bar-is-shown'
+        var newyymm = formatYYMM(this.props.yymm);
+        var year = newyymm.year;
+        var month = newyymm.month;
 
         return(
             <div className="row DataChart-item">
                 <div className="col-xs-3" style={{display:'inline-block'}}>
                     <img src="img/icon-current@3x.png" width="6" height="8" />
                     <span className="DataChart-currentTime">
-                        {this.props.item.year}/{this.props.item.month}
+                        {year}/{month}
                     </span>
                 </div>
 
                 <div className="col-xs-9">
-                    <div className={bar} style={{width: this.props.item.number}}>
+                    <div className={bar} style={{width: this.props.item.number/3}}>
                     </div>
                 </div>
             </div>
@@ -48,25 +99,22 @@ class CurrentChart extends React.Component{
     }
 }
 
+
 class Chart extends React.Component{
     render(){
-        var bar = '';
-        if (this.props.item.status == 'up') {
-            bar = 'DataChart-bar-up';
-        }else if (this.props.item.status == 'down') {
-            bar = 'DataChart-bar-down';
-        }else {
-            bar = 'DataChart-bar-normal';
-        }
+        var bar = barType(this.props.item.arrow);
+        var newyymm = formatYYMM(this.props.yymm);
+        var year = newyymm.year;
+        var month = newyymm.month;
 
         return(
             <div className="row DataChart-item">
                 <div className="col-xs-2">
-                    {this.props.item.year}/{this.props.item.month}
+                    {year}/{month}
                 </div>
 
                 <div className="col-xs-10">
-                    <div className={bar} style={{width: this.props.item.number}}>
+                    <div className={bar} style={{width: this.props.item.number/3}}>
                     </div>
                 </div>
             </div>
@@ -74,73 +122,24 @@ class Chart extends React.Component{
     }
 }
 
-var items = [
-    {
-        'year': 2016,
-        'month': 5,
-        'number': 180,
-        'status': 'normal',
-    }, {
-        'year': 2016,
-        'month': 4,
-        'number': 190,
-        'status': 'down',
-    }, {
-        'year': 2016,
-        'month': 3,
-        'number': 210,
-        'status': 'up',
-    }, {
-        'year': 2016,
-        'month': 2,
-        'number': 150,
-        'status': 'down',
-    }, {
-        'year': 2016,
-        'month': 1,
-        'number': 160,
-        'status': 'down',
-    }, {
-        'year': 2015,
-        'month': 12,
-        'number': 190,
-        'status': 'up',
-    }, {
-        'year': 2015,
-        'month': 11,
-        'number': 140,
-        'status': 'up',
-    }, {
-        'year': 2015,
-        'month': 10,
-        'number': 120,
-        'status': 'up',
-    }, {
-        'year': 2015,
-        'month': 9,
-        'number': 110,
-        'status': 'down',
-    }, {
-        'year': 2015,
-        'month': 8,
-        'number': 160,
-        'status': 'up',
-    }
-];
 
 class LineCharts extends React.Component{
     render(){
         var blocks = [];
-        for (var i = 1; i < items.length; i++) {
-            blocks.push(
-                <Chart item={items[i]}/>
-            );
+        var dataList = this.props.dataList;
+        var latestMonthData = dataList[dataList.length-1];
+
+        for (var i = dataList.length-2; i >=0 ; i--) {
+            var monthData = dataList[i];
+            var items = monthData.detail;
+            var yymm = monthData.YYMM;
+            blocks.push(<Chart item={items.GrossMargin} yymm={yymm} />);
         }
 
         return(
             <div>
-                <Label/>
-                <CurrentChart item={items[0]}/>
+                <Label label={Object.keys(latestMonthData.detail)[2]}/>
+                <CurrentChart item={latestMonthData.detail.GrossMargin} yymm={latestMonthData.YYMM} />
                 {blocks}
                 <div className="clearfix">
                 </div>
@@ -148,5 +147,6 @@ class LineCharts extends React.Component{
         );
     }
 }
+
 
 module.exports = LineCharts;
