@@ -24,11 +24,11 @@ class Login extends React.Component{
                     <div class="Login-form">
                         <form>
                             <div class="form-group Form-item">
-                                <input type="email" class="form-control Login-input" id="exampleInputEmail1" placeholder="ID">
+                                <input type="email" class="form-control Login-input" id="exampleInputEmail1" placeholder="ID"/>
                             </div>
 
                             <div class="form-group Form-item">
-                                <input type="password" class="form-control Login-input" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control Login-input" id="exampleInputPassword1" placeholder="Password"/>
                             </div>
 
                             <div class="row">
