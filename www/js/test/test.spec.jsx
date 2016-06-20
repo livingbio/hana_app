@@ -22,12 +22,13 @@ describe('<Arrow/>', ()=>{
 
     it('should show up', ()=>{
         const wrapper = shallow(<Arrow arrow="up"/>);
-        expect(wrapper.find('img').is('[src="img/icon-up@3x.png"]'))
+        expect(wrapper.contains(<img src="img/icon-up@3x.png" width="19" height="19" />)).to.equal(true);
     });
 
     it('should show down', ()=>{
         const wrapper = shallow(<Arrow arrow="down"/>);
-        expect(wrapper.find('img').is('[src="img/icon-down@3x.png"]'))
+        expect(wrapper.contains(<img src="img/icon-down@3x.png" width="19" height="19" />)).to.equal(true);
     });
+
 
 });
