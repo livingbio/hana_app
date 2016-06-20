@@ -38,6 +38,9 @@ For unit test:
 
     npm run test
 
+please read document about enzyme and see example in test.spec.jsx
+
+
 ### launch development browser
 
 
