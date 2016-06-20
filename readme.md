@@ -34,6 +34,10 @@ For final development:
     cordova emulate ios
 
 
+For unit test:
+
+    npm run test
+
 ### launch development browser
 
 
