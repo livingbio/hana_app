@@ -24,7 +24,7 @@ var data = [
                 'number': 400,
                 'label': 'Amt',
                 'kind': 'money',
-                'arrow': 'up',
+                'arrow': 'down',
             },
             'GrossMargin': {
                 'number': 400,
@@ -35,6 +35,52 @@ var data = [
             'GrossMarginRate': {
                 'number': 500,
                 'label': 'GrossMarginRate',
+                'kind': 'money',
+                'arrow': 'up',
+            },
+            'Sale': {
+                'number': 500,
+                'label': 'Sale',
+                'kind': 'money',
+                'arrow': 'down',
+            },
+            'SBG': {
+                'number': 550,
+                'label': 'SBG',
+                'kind': 'money',
+                'arrow': 'down',
+            },
+        },
+    }, {
+        'YYMM': 201601,
+        'detail': {
+            'SourceCost': {
+                'number': 456,
+                'label': 'SourceCost',
+                'kind': 'money',
+                'arrow': 'up',
+            },
+            'Amt': {
+                'number': 400,
+                'label': 'Amt',
+                'kind': 'money',
+                'arrow': 'up',
+            },
+            'GrossMargin': {
+                'number': 600,
+                'label': 'GrossMargin',
+                'kind': 'money',
+                'arrow': 'down',
+            },
+            'GrossMarginRate': {
+                'number': 500,
+                'label': 'GrossMarginRate',
+                'kind': 'money',
+                'arrow': 'up',
+            },
+            'Sale': {
+                'number': 500,
+                'label': 'Sale',
                 'kind': 'money',
                 'arrow': 'up',
             },
@@ -64,11 +110,17 @@ var data = [
                 'number': 600,
                 'label': 'GrossMargin',
                 'kind': 'money',
-                'arrow': 'down',
+                'arrow': 'normal',
             },
             'GrossMarginRate': {
                 'number': 500,
                 'label': 'GrossMarginRate',
+                'kind': 'money',
+                'arrow': 'up',
+            },
+            'Sale': {
+                'number': 500,
+                'label': 'Sale',
                 'kind': 'money',
                 'arrow': 'up',
             },
@@ -79,7 +131,7 @@ var data = [
                 'arrow': 'down',
             },
         },
-    },
+    }
 ];
 
 class Wrapper extends React.Component{
