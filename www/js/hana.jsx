@@ -12,7 +12,7 @@ var render = require('react-dom').render;
 
 var data = [
     {
-        'YYMM': 12,
+        'YYMM': 201512,
         'detail': {
             'SourceCost': {
                 'number': 456,
@@ -27,10 +27,10 @@ var data = [
                 'arrow': 'up',
             },
             'GrossMargin': {
-                'number': 600,
+                'number': 400,
                 'label': 'GrossMargin',
                 'kind': 'money',
-                'arrow': 'down',
+                'arrow': 'up',
             },
             'GrossMarginRate': {
                 'number': 500,
@@ -46,7 +46,7 @@ var data = [
             },
         },
     }, {
-        'YYMM': 10,
+        'YYMM': 201602,
         'detail': {
             'SourceCost': {
                 'number': 456,

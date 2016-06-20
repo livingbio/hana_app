@@ -1,6 +1,7 @@
 var React = require('react');
 var $ = require("jquery");
 
+
 class Arrow extends React.Component{
     render(){
         var src = '';
@@ -16,6 +17,7 @@ class Arrow extends React.Component{
         );
     }
 }
+
 
 class Label extends React.Component{
     render(){
@@ -46,6 +48,7 @@ class Label extends React.Component{
     }
 }
 
+
 class Number extends React.Component{
     render(){
         var value = '';
@@ -62,6 +65,7 @@ class Number extends React.Component{
         );
     }
 }
+
 
 class DataBlock extends React.Component{
     render(){
@@ -80,6 +84,7 @@ class DataBlock extends React.Component{
         );
     }
 }
+
 
 class NumberItem extends React.Component{
     render(){
@@ -101,5 +106,6 @@ class NumberItem extends React.Component{
         );
     }
 }
+
 
 module.exports = NumberItem;
