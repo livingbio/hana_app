@@ -12,7 +12,7 @@ var render = require('react-dom').render;
 
 var data = [
     {
-        'YYMM': 1234,
+        'YYMM': 12,
         'detail': {
             'SourceCost': {
                 'number': 456,
@@ -21,28 +21,62 @@ var data = [
                 'arrow': 'up',
             },
             'Amt': {
-                'number': 456,
+                'number': 400,
                 'label': 'Amt',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'GrossMargin': {
-                'number': 456,
+                'number': 600,
                 'label': 'GrossMargin',
                 'kind': 'money',
-                'arrow': 'up',
+                'arrow': 'down',
             },
             'GrossMarginRate': {
-                'number': 456,
+                'number': 500,
                 'label': 'GrossMarginRate',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'SBG': {
-                'number': 456,
+                'number': 550,
                 'label': 'SBG',
                 'kind': 'money',
+                'arrow': 'down',
+            },
+        },
+    }, {
+        'YYMM': 10,
+        'detail': {
+            'SourceCost': {
+                'number': 456,
+                'label': 'SourceCost',
+                'kind': 'money',
                 'arrow': 'up',
+            },
+            'Amt': {
+                'number': 400,
+                'label': 'Amt',
+                'kind': 'money',
+                'arrow': 'up',
+            },
+            'GrossMargin': {
+                'number': 600,
+                'label': 'GrossMargin',
+                'kind': 'money',
+                'arrow': 'down',
+            },
+            'GrossMarginRate': {
+                'number': 500,
+                'label': 'GrossMarginRate',
+                'kind': 'money',
+                'arrow': 'up',
+            },
+            'SBG': {
+                'number': 550,
+                'label': 'SBG',
+                'kind': 'money',
+                'arrow': 'down',
             },
         },
     },
@@ -58,7 +92,7 @@ class Wrapper extends React.Component{
                     <Nav_Bar />
                     <div className="container">
                         <Number_Item dataList={this.props.dataList} />
-                        <Line_Charts />
+                        <Line_Charts dataList={this.props.dataList} />
                     </div>
                 </div>
             </div>

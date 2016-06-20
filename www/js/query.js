@@ -67,6 +67,7 @@ items.done(function(data){
     console.log(data);
     var hey = [];
     hey.push(data[0]);
+    console.log(hey);
     // render(
     //     <Wrapper dataList={hey}/>,
     //     document.getElementById('Body')

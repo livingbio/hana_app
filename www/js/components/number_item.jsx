@@ -19,9 +19,28 @@ class Arrow extends React.Component{
 
 class Label extends React.Component{
     render(){
+        var label= '';
+        switch (this.props.label) {
+            case 'SourceCost':
+                label = '成本';
+                break;
+            case 'Amt':
+                label = '收入';
+                break;
+            case 'GrossMargin':
+                label = '毛利';
+                break;
+            case 'GrossMarginRate':
+                label = '毛利率';
+                break;
+            default:
+                label = '測試';
+                break;
+        }
+
         return(
             <div className="Text-main">
-                {this.props.label}
+                {label}
             </div>
         );
     }
@@ -69,7 +88,7 @@ class NumberItem extends React.Component{
 
         for (var key in items) {
             blocks.push(<DataBlock item={items[key]}/>);
-            console.log(items[key]);
+            // console.log(items[key]);
         }
 
         return(

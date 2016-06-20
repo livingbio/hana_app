@@ -16,6 +16,12 @@ class Filter extends React.Component{
                                 <div className="form-group Form-item">
                                     <label className="sr-only" htmlFor="queryYear">Year</label>
                                     <input type="text" className="form-control Filter-input" id="queryYear" placeholder="年"/>
+                                        {/*<select className="Filter-input">
+                                         <option value="volvo">Volvo</option>
+                                         <option value="saab">Saab</option>
+                                         <option value="mercedes">Mercedes</option>
+                                         <option value="audi">Audi</option>
+                                       </select>*/}
                                 </div>
                             </div>
 

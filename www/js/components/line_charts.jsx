@@ -22,9 +22,9 @@ class Label extends React.Component{
 class CurrentChart extends React.Component{
     render(){
         var bar = '';
-        if (this.props.item.status == 'up') {
+        if (this.props.item.arrow == 'up') {
             bar = 'DataChart-bar-up';
-        }else if (this.props.item.status == 'down') {
+        }else if (this.props.item.arrow == 'down') {
             bar = 'DataChart-bar-down';
         }else {
             bar = 'DataChart-bar-normal';
@@ -35,12 +35,12 @@ class CurrentChart extends React.Component{
                 <div className="col-xs-3" style={{display:'inline-block'}}>
                     <img src="img/icon-current@3x.png" width="6" height="8" />
                     <span className="DataChart-currentTime">
-                        {this.props.item.year}/{this.props.item.month}
+                        {this.props.year}/{this.props.year}
                     </span>
                 </div>
 
                 <div className="col-xs-9">
-                    <div className={bar} style={{width: this.props.item.number}}>
+                    <div className={bar} style={{width: this.props.item.number/3}}>
                     </div>
                 </div>
             </div>
@@ -51,9 +51,9 @@ class CurrentChart extends React.Component{
 class Chart extends React.Component{
     render(){
         var bar = '';
-        if (this.props.item.status == 'up') {
+        if (this.props.item.arrow == 'up') {
             bar = 'DataChart-bar-up';
-        }else if (this.props.item.status == 'down') {
+        }else if (this.props.item.arrow == 'down') {
             bar = 'DataChart-bar-down';
         }else {
             bar = 'DataChart-bar-normal';
@@ -62,11 +62,11 @@ class Chart extends React.Component{
         return(
             <div className="row DataChart-item">
                 <div className="col-xs-2">
-                    {this.props.item.year}/{this.props.item.month}
+                    {this.props.year}/{this.props.year}
                 </div>
 
                 <div className="col-xs-10">
-                    <div className={bar} style={{width: this.props.item.number}}>
+                    <div className={bar} style={{width: this.props.item.number/3}}>
                     </div>
                 </div>
             </div>
@@ -74,73 +74,23 @@ class Chart extends React.Component{
     }
 }
 
-var items = [
-    {
-        'year': 2016,
-        'month': 5,
-        'number': 180,
-        'status': 'normal',
-    }, {
-        'year': 2016,
-        'month': 4,
-        'number': 190,
-        'status': 'down',
-    }, {
-        'year': 2016,
-        'month': 3,
-        'number': 210,
-        'status': 'up',
-    }, {
-        'year': 2016,
-        'month': 2,
-        'number': 150,
-        'status': 'down',
-    }, {
-        'year': 2016,
-        'month': 1,
-        'number': 160,
-        'status': 'down',
-    }, {
-        'year': 2015,
-        'month': 12,
-        'number': 190,
-        'status': 'up',
-    }, {
-        'year': 2015,
-        'month': 11,
-        'number': 140,
-        'status': 'up',
-    }, {
-        'year': 2015,
-        'month': 10,
-        'number': 120,
-        'status': 'up',
-    }, {
-        'year': 2015,
-        'month': 9,
-        'number': 110,
-        'status': 'down',
-    }, {
-        'year': 2015,
-        'month': 8,
-        'number': 160,
-        'status': 'up',
-    }
-];
-
 class LineCharts extends React.Component{
     render(){
         var blocks = [];
-        for (var i = 1; i < items.length; i++) {
-            blocks.push(
-                <Chart item={items[i]}/>
-            );
+        var dataList = this.props.dataList;
+        var latestMonthData = dataList[dataList.length-1];
+
+        for (var i = 0; i < dataList.length; i++) {
+            var monthData = dataList[i];
+            var items = monthData.detail;
+            var year = monthData.YYMM;
+            blocks.push(<Chart item={items.GrossMargin} year={year} />);
         }
 
         return(
             <div>
                 <Label/>
-                <CurrentChart item={items[0]}/>
+                <CurrentChart item={latestMonthData.detail.GrossMargin} year={year} />
                 {blocks}
                 <div className="clearfix">
                 </div>
