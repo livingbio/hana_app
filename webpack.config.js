@@ -22,7 +22,7 @@ module.exports = {
 
     },
     resolve: {
-        extensions: ['', 'js', 'jsx'],
+        extensions: ['', 'js', 'jsx', 'node', 'json'],
         moduleDirectories: ['node_modules', 'bower_components', 'shared'],
         root: './www/js'
     }

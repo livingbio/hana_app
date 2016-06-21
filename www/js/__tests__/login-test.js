@@ -1,8 +1,8 @@
-jest.unmock('../components/login.jsx');
+jest.unmock('../components/login');
 'use strict';
 
 import React from 'react';
-import Login from '../components/login.jsx';
+import Login from '../components/login';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 

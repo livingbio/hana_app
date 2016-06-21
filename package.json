@@ -45,6 +45,7 @@
     "url": "https://github.com/livingbio/hana_app/issues"
   },
   "jest": {
+    "moduleFileExtensions": ["js", "json", "node", "jsx"],
     "unmockedModulePathPatterns": [
       "react",
       "chai",
