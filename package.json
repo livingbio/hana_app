@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
+    "babel-jest": "^12.1.0",
     "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "chai": "^3.5.0",
@@ -19,6 +21,7 @@
     "eslint-plugin-import": "^1.8.1",
     "isparta": "^4.0.0",
     "istanbul": "^0.4.3",
+    "jest-cli": "^12.1.1",
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "react": "^15.1.0",
@@ -29,7 +32,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register ./www/js/test/**/test*.jsx",
+    "test": "./node_modules/.bin/jest --coverage",
     "watch": "webpack --progress --colors --watch"
   },
   "repository": {
@@ -41,5 +44,27 @@
   "bugs": {
     "url": "https://github.com/livingbio/hana_app/issues"
   },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "react",
+      "chai",
+      "react-dom",
+      "react-addons-test-utils",
+      "fbjs",
+      "enzyme",
+      "cheerio",
+      "htmlparser2",
+      "underscore",
+      "lodash",
+      "domhandler",
+      "object.assign",
+      "define-properties",
+      "function-bind",
+      "jest-resolve",
+      "jest-cli",
+      "object-keys"
+    ]
+  },
   "homepage": "https://github.com/livingbio/hana_app#readme"
+
 }

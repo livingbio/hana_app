@@ -20,5 +20,10 @@ module.exports = {
             }
         ]
 
+    },
+    resolve: {
+        extensions: ['', 'js', 'jsx'],
+        moduleDirectories: ['node_modules', 'bower_components', 'shared'],
+        root: './www/js'
     }
 };
