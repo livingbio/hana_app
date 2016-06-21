@@ -44,7 +44,7 @@ Tool used in ut:
 
     * chai, assertion  http://chaijs.com/api/bdd/
     * enzyme: render and inspect reactjs rendered dom
-    * mocha: test framework && test runner 
+    * mocha: test framework && test runner
 
 
 ### launch development browser
