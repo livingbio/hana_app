@@ -1,5 +1,6 @@
 var React = require('react');
 
+
 class Drawer extends React.Component{
     render(){
         return(
@@ -20,5 +21,11 @@ class Drawer extends React.Component{
         );
     }
 }
+
+
+Drawer.propTypes = {
+    profileID: React.PropTypes.string
+};
+
 
 module.exports = Drawer;

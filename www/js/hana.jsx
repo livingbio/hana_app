@@ -139,7 +139,7 @@ class Wrapper extends React.Component{
         return(
             <div>
                 <Drawer profileID='GliaCloud'/>
-                <Filter />
+                <Filter username='GliaCloud' password='GliaCloud'/>
                 <div id="main">
                     <Nav_Bar />
                     <div className="container">
