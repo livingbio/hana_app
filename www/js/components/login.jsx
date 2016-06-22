@@ -8,8 +8,6 @@ export class Login extends React.Component{
     render(){
 
         let onLoginSubmit = this.props.onLoginSubmit;
-        let username = this.props.user;
-        let password = this.props.password;
         let status = this.props.status;
 
         let user_node;
@@ -25,7 +23,7 @@ export class Login extends React.Component{
             case "PASSWORD_EMPTY":
                 helpText = "密碼不可為空";
                 break;
-            case "VALIDATION_FAIL":
+            case "LOGIN_FAIL":
                 helpText = "帳密有錯";
                 break;
         }
@@ -50,10 +48,12 @@ export class Login extends React.Component{
                     </div>
 
                     <div class="Login-form">
+
                         <form onSubmit={e=>{
-                           e.preventDefault();
-                           onLoginSubmit(user_node.value.trim(), password_node.value.trim());
-                    }}>
+                               e.preventDefault();
+                               onLoginSubmit(user_node.value.trim(), password_node.value.trim());
+                            }}>
+
                             <div class="form-group Form-item">
 
                                 <input type="text" className="form-control Login-input"  placeholder="Username"
