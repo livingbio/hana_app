@@ -7,6 +7,7 @@
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "echarts": "^3.1.10",
+    "react-redux": "^4.4.5",
     "style-loader": "^0.13.1"
   },
   "devDependencies": {
@@ -45,7 +46,12 @@
     "url": "https://github.com/livingbio/hana_app/issues"
   },
   "jest": {
-    "moduleFileExtensions": ["js", "json", "node", "jsx"],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "node",
+      "jsx"
+    ],
     "unmockedModulePathPatterns": [
       "react",
       "chai",
@@ -67,5 +73,4 @@
     ]
   },
   "homepage": "https://github.com/livingbio/hana_app#readme"
-
 }
