@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 class Label extends React.Component{
@@ -95,6 +96,7 @@ class CurrentChart extends React.Component{
         var year = newyymm.year;
         var month = newyymm.month;
         var widthPercent = convertWidthPercent(this.props.item.number);
+        var transition = 'width 2s linear 1s';
 
         return(
             <div className="row DataChart-item">
@@ -106,7 +108,7 @@ class CurrentChart extends React.Component{
                 </div>
 
                 <div className="col-xs-9">
-                    <div className={bar} style={{width: widthPercent + '%'}}>
+                    <div className={bar} style={{width: widthPercent + '%', transition: transition}}>
                     </div>
                 </div>
             </div>
@@ -122,6 +124,7 @@ class Chart extends React.Component{
         var year = newyymm.year;
         var month = newyymm.month;
         var widthPercent = convertWidthPercent(this.props.item.number);
+        var transition = 'width 2s ease-in 1s';
 
         return(
             <div className="row DataChart-item">
@@ -130,8 +133,10 @@ class Chart extends React.Component{
                 </div>
 
                 <div className="col-xs-10">
-                    <div className={bar} style={{width: widthPercent + '%'}}>
-                    </div>
+                    <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
+                      <div className={bar} >
+                      </div>
+                    </ReactCSSTransitionGroup>
                 </div>
             </div>
         );

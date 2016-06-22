@@ -252,3 +252,12 @@ $opacity: 0.69;
     padding-left: 24px;
     padding-top: 2px;
 }
+
+.example-appear {
+  width: 0%;
+}
+
+.example-appear.example-appear-active {
+  width: 100%;
+  transition: width .5s ease-in;
+}
