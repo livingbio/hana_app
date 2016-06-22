@@ -137,8 +137,8 @@ class Wrapper extends React.Component{
     render(){
         return(
             <div>
-                <Drawer />
-                <Filter />
+                <Drawer profileID='GliaCloud'/>
+                <Filter username='GliaCloud' password='GliaCloud'/>
                 <div id="main">
                     <Nav_Bar />
                     <div className="container">

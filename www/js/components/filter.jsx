@@ -65,4 +65,9 @@ class Filter extends React.Component{
     }
 }
 
+Filter.propTypes= {
+    username: React.PropTypes.string,
+    password: React.PropTypes.string
+};
+
 module.exports = Filter;

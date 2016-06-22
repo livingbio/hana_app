@@ -108,4 +108,30 @@ class NumberItem extends React.Component{
 }
 
 
+Arrow.propTypes = {
+    arrow: React.PropTypes.string
+};
+
+
+Label.propTypes = {
+    label: React.PropTypes.string
+};
+
+
+Number.propTypes = {
+    number: React.PropTypes.number,
+    kind: React.PropTypes.string
+};
+
+
+DataBlock.propTypes = {
+    item: React.PropTypes.object
+};
+
+
+NumberItem.propTypes = {
+    dataList: React.PropTypes.array
+};
+
+
 module.exports = NumberItem;

@@ -149,4 +149,23 @@ class LineCharts extends React.Component{
 }
 
 
+Label.propTypes = {
+    label: React.PropTypes.string
+};
+
+
+CurrentChart.propTypes = {
+    item: React.PropTypes.object,
+    yymm:React.PropTypes.number
+};
+
+
+Chart.propTypes = CurrentChart.propTypes;
+
+
+LineCharts.propTypes= {
+    dataList: React.PropTypes.array
+};
+
+
 module.exports = LineCharts;
