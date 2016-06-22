@@ -30,13 +30,6 @@ export class Login extends React.Component{
 
         return(
             <div>
-                {/*<div className="SapLogo">
-                    <div className="row">
-                        <div className="col-xs-2">
-                            <img src="img/logo-sap@3x.png" width="56" height="29" />
-                        </div>
-                    </div>
-                </div>*/}
 
                 <div className="container">
                     <div className="Logo-leadtek">
