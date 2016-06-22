@@ -1,7 +1,35 @@
 var React = require('react');
 
-class Login extends React.Component{
+
+
+
+export class Login extends React.Component{
+
     render(){
+
+        let onLoginSubmit = this.props.onLoginSubmit;
+        let username = this.props.user;
+        let password = this.props.password;
+        let status = this.props.status;
+
+        let user_node;
+        let password_node;
+
+
+        let helpText = "";
+
+        switch(status){
+            case "USER_NAME_EMPTY":
+                helpText = "使用者名稱不可為空";
+                break;
+            case "PASSWORD_EMPTY":
+                helpText = "密碼不可為空";
+                break;
+            case "VALIDATION_FAIL":
+                helpText = "帳密有錯";
+                break;
+        }
+
         return(
             <div>
                 <div className="SapLogo">
@@ -14,21 +42,38 @@ class Login extends React.Component{
 
                 <div className="container">
                     <div className="Login-title">
-                    SAP HANA
+                        SAP HANA
                     </div>
 
                     <div className="Login-description">
-                    SAP HANA is the Platform for Next-Generation Applications and Analytics
+                        SAP HANA is the Platform for Next-Generation Applications and Analytics
                     </div>
 
                     <div class="Login-form">
-                        <form>
+                        <form onSubmit={e=>{
+                           e.preventDefault();
+                           onLoginSubmit(user_node.value.trim(), password_node.value.trim());
+                    }}>
                             <div class="form-group Form-item">
-                                <input type="email" className="form-control Login-input" id="exampleInputEmail1" placeholder="ID"/>
+
+                                <input type="text" className="form-control Login-input"  placeholder="Username"
+                                       ref={ node => {
+                                        user_node = node
+                                   }} />
+
                             </div>
 
                             <div class="form-group Form-item">
-                                <input type="password" className="form-control Login-input" id="exampleInputPassword1" placeholder="Password"/>
+                                <input type="password" className="form-control Login-input"  placeholder="Password"
+                                       ref={ node => {
+                                        password_node = node
+                                    }} />
+                            </div>
+
+                            <div class="row">
+                                <div className="col-xs-12">
+                                    <p class="help-block">{ helpText }</p>
+                                </div>
                             </div>
 
                             <div class="row">
@@ -43,5 +88,3 @@ class Login extends React.Component{
         );
     }
 }
-
-module.exports = Login;

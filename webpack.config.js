@@ -1,8 +1,12 @@
 module.exports = {
-    entry: "./www/js/hana.jsx",
+    devtool: "#inline-source-map",
+    entry: {
+        hana: "./www/js/hana.jsx",
+        login: "./www/js/pages/login.jsx"
+    },
     output: {
         path: './www/dist',
-        filename: "bundle.js"
+        filename: "[name].bundle.js"
     },
     module: {
         loaders: [
@@ -22,7 +26,7 @@ module.exports = {
 
     },
     resolve: {
-        extensions: ['', 'js', 'jsx', 'node', 'json'],
+        //extensions: ['', 'js', 'jsx', 'node', 'json'],
         moduleDirectories: ['node_modules', 'bower_components', 'shared'],
         root: './www/js'
     }
