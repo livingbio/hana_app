@@ -73,6 +73,20 @@ function barType(arrow){
 }
 
 
+function convertWidthPercent(number){
+    var numberDigit = number.toString().length;
+    var standard = 1;
+
+    for (var i = 0; i < numberDigit; i++) {
+        standard *= 10;
+    }
+
+    var widthPercent = (number/standard)*100;
+
+    return widthPercent;
+}
+
+
 class CurrentChart extends React.Component{
     render(){
         var bar = barType(this.props.item.arrow);
@@ -80,6 +94,7 @@ class CurrentChart extends React.Component{
         var newyymm = formatYYMM(this.props.yymm);
         var year = newyymm.year;
         var month = newyymm.month;
+        var widthPercent = convertWidthPercent(this.props.item.number);
 
         return(
             <div className="row DataChart-item">
@@ -91,7 +106,7 @@ class CurrentChart extends React.Component{
                 </div>
 
                 <div className="col-xs-9">
-                    <div className={bar} style={{width: this.props.item.number/3}}>
+                    <div className={bar} style={{width: widthPercent + '%'}}>
                     </div>
                 </div>
             </div>
@@ -106,6 +121,7 @@ class Chart extends React.Component{
         var newyymm = formatYYMM(this.props.yymm);
         var year = newyymm.year;
         var month = newyymm.month;
+        var widthPercent = convertWidthPercent(this.props.item.number);
 
         return(
             <div className="row DataChart-item">
@@ -114,7 +130,7 @@ class Chart extends React.Component{
                 </div>
 
                 <div className="col-xs-10">
-                    <div className={bar} style={{width: this.props.item.number/3}}>
+                    <div className={bar} style={{width: widthPercent + '%'}}>
                     </div>
                 </div>
             </div>

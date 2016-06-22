@@ -204,7 +204,7 @@ $opacity: 0.69;
 }
 
 .Filter-Button{
-    background: $background-DataBlock-shown;
+    background: #20263b;
     border-radius:2px;
     color: $color-white;
     font-size:14px;
@@ -216,20 +216,20 @@ $opacity: 0.69;
 .Filter-Button--cancel{
     @extend .Filter-Button;
     background: transparent;
-    color: $background-DataBlock-shown;
-    border-color: $background-DataBlock-shown;
+    color: $color-white;
+    border-color: $color-white;
 }
 
 .Filter-Button:hover, .Filter-Button:active:hover {
-    background-color: $background-DataBlock-shown;
+    background-color: #20263b;
     color: $color-white;
     border-color: transparent;
 }
 
 .Filter-Button--cancel:hover, .Filter-Button--cancel:active:hover{
     background-color: $color-orange;
-    color: $background-DataBlock-shown;
-    border-color: $background-DataBlock-shown;
+    color: $color-white;
+    border-color: $color-white;
 }
 
 #sideBar{
