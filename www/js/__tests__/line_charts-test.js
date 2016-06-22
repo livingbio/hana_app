@@ -2,7 +2,7 @@ jest.unmock('../components/number_item');
 'use strict';
 
 import React from 'react';
-import Number_Item from '../components/number_item';
+import Line_Charts from '../components/line_charts';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 
@@ -53,40 +53,19 @@ var data = [
 ];
 
 
-describe('NumberItem Component', ()=>{
+describe('LineCharts Component', ()=>{
 
-    it('should have 6 data blocks', ()=>{
+    it('should have data chart', ()=>{
 
-        const wrapper = mount(<Number_Item dataList={data} />);
-        expect(wrapper.find('.DataBlock')).to.have.length(6);
-
-    });
-
-    it('should have shown 成本', ()=>{
-
-        const wrapper = mount(<Number_Item dataList={data} />);
-        expect(wrapper.text()).to.contain("成本");
+        const wrapper = mount(<Line_Charts dataList={data} />);
+        // expect(wrapper.find('.DataChart-item')).to.have.length(1);
 
     });
 
-    it('should have shown 收入', ()=>{
+    it('should have data chart title', ()=>{
 
-        const wrapper = mount(<Number_Item dataList={data} />);
-        expect(wrapper.text()).to.contain("收入");
-
-    });
-
-    it('should have shown 毛利', ()=>{
-
-        const wrapper = mount(<Number_Item dataList={data} />);
-        expect(wrapper.text()).to.contain("毛利");
-
-    });
-
-    it('should have shown 毛利率', ()=>{
-
-        const wrapper = mount(<Number_Item dataList={data} />);
-        expect(wrapper.text()).to.contain("毛利率");
+        const wrapper = mount(<Line_Charts dataList={data} />);
+        // expect(wrapper.find('.DataChart-title')).to.have.length(1);
 
     });
 
