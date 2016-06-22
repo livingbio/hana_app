@@ -1,7 +1,7 @@
 @import "variable";
 
 $color-blue: #2e354d;
-$color-orange: #ffbf21;
+$color-orange: #f59a00;
 $color-green: #7bdc93;
 $color-red: #fe3824;
 $color-white: #ffffff;
@@ -103,9 +103,12 @@ $opacity: 0.69;
     padding-left: 5px;
 }
 
-.SapLogo{
+.Logo-leadtek{
     margin-top: 25px;
-    margin-left: -12px;
+}
+
+.Logo-sap{
+    margin-top: 30px;
 }
 
 .Form-item{
@@ -122,6 +125,7 @@ $opacity: 0.69;
 .Login-description{
     font-size: 14px;
     opacity: $opacity;
+    margin-top: 30px;
 }
 
 .Login-form{
