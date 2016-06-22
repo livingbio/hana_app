@@ -145,22 +145,31 @@ class Chart extends React.Component{
 
 
 class LineCharts extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {label: 'GrossMargin'};
+        this.tick = this.tick.bind(this);
+    }
+    tick() {
+        this.setState({label: 'GrossMarginRate'});
+    }
     render(){
         var blocks = [];
         var dataList = this.props.dataList;
         var latestMonthData = dataList[dataList.length-1];
+        var label = this.state.label;
 
         for (var i = dataList.length-2; i >=0 ; i--) {
             var monthData = dataList[i];
             var items = monthData.detail;
             var yymm = monthData.YYMM;
-            blocks.push(<Chart item={items.GrossMargin} yymm={yymm} />);
+            blocks.push(<Chart item={items[label]} yymm={yymm} />);
         }
 
         return(
             <div>
-                <Label label={Object.keys(latestMonthData.detail)[2]}/>
-                <CurrentChart item={latestMonthData.detail.GrossMargin} yymm={latestMonthData.YYMM} />
+                <Label label={label}/>
+                <CurrentChart item={latestMonthData.detail[label]} yymm={latestMonthData.YYMM} />
                 {blocks}
                 <div className="clearfix">
                 </div>
