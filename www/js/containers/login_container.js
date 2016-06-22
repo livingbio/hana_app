@@ -1,22 +1,39 @@
 import {connect} from 'react-redux'
 
-import {login} from "../actions"
+import {loginSuccess, loginIntegrityCheck, loginFail} from "../actions"
 import {Login} from "../components/login.jsx"
+import {years} from "../query"
 
 const mapStateToProps = (state, ownProps) => {
     const authentication = state.authentication;
     return {
-        user: authentication.user,
-        password: authentication.password,
-        authorized: authentication.authorized,
         status: authentication.status
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onLoginSubmit: (name, password) => {
-            dispatch(login(name,password))
+        onLoginSubmit: (user, password) => {
+
+
+            if (!user.length || !password.length){
+                dispatch(loginIntegrityCheck(name,password));
+            }
+            else{
+
+                let promise = years(user, password);
+
+                promise.done((data) =>{
+                    dispatch(loginSuccess());
+                });
+
+                promise.fail(() =>{
+                    console.log("error?");
+                    dispatch(loginFail());
+                });
+
+            }
+
         }
     };
 };

@@ -3,10 +3,22 @@
  */
 
 
-export const login = (user, password) => {
+export const loginSuccess = () => {
     return {
-        type: "LOGIN",
-        user,
-        password
+        type: "LOGIN_SUCCESS"
+    }
+};
+
+export const loginFail = () => {
+    return {
+        type: "LOGIN_FAIL"
+    }
+};
+
+
+export const loginIntegrityCheck = (user, password) => {
+    return {
+        type: "LOGIN_INTEGRITY_CHECK",
+        user, password
     }
 };

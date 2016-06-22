@@ -7,8 +7,7 @@ export const authentication = (state={}, action) => {
 
     console.log("handle authentication");
     switch (action.type){
-
-        case "LOGIN":
+        case "LOGIN_INTEGRITY_CHECK":
             if (!action.user.length){
                 return {
                     authorized: false,
@@ -25,22 +24,22 @@ export const authentication = (state={}, action) => {
                     password: action.password
                 }
             }
-            else if (action.user === 'tim'){
-                return {
-                    authorized: true,
-                    status: "LOGGED_IN",
-                    user: action.user,
-                    password: action.password
-                }
-            }
-            else{
-                return {
-                    authorized: false,
-                    status: "VALIDATION_FAIL",
-                    user: action.user,
-                    password: action.password
-                }
-            }
+            break;
+
+        case "LOGIN_SUCCESS":
+            return {
+                authorized: true,
+                status: "LOGGED_IN",
+                user: action.user,
+                password: action.password
+            };
+        case "LOGIN_FAIL":
+            return {
+                authorized: false,
+                status: "LOGIN_FAIL",
+                user: action.user,
+                password: action.password
+            };
 
         case "LOGOUT":
             return {

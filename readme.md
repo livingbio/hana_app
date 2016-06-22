@@ -27,9 +27,11 @@ For temporary development:
     open browser directly
 
 
+Make your chrome can issue ajax request:
+
+    open -n -a  /Applications/Google\ Chrome.app  --args  --user-data-dir="/tmp/" --disable-web-security
 
 For final development:
-
 
     cordova emulate ios
 
