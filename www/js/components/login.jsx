@@ -30,31 +30,35 @@ export class Login extends React.Component{
 
         return(
             <div>
-                <div className="SapLogo">
+                {/*<div className="SapLogo">
                     <div className="row">
                         <div className="col-xs-2">
                             <img src="img/logo-sap@3x.png" width="56" height="29" />
                         </div>
                     </div>
-                </div>
+                </div>*/}
 
                 <div className="container">
-                    <div className="Login-title">
-                        SAP HANA
+                    <div className="Logo-leadtek">
+                        <img src="img/logo-leadtek@3x.png" width="108" height="19" />
+                    </div>
+
+                    <div className="Logo-sap">
+                        <img src="img/logo-sap@3x.png" width="222" height="65" />
                     </div>
 
                     <div className="Login-description">
                         SAP HANA is the Platform for Next-Generation Applications and Analytics
                     </div>
 
-                    <div class="Login-form">
+                    <div className="Login-form">
 
                         <form onSubmit={e=>{
                                e.preventDefault();
                                onLoginSubmit(user_node.value.trim(), password_node.value.trim());
                             }}>
 
-                            <div class="form-group Form-item">
+                            <div className="form-group Form-item">
 
                                 <input type="text" className="form-control Login-input"  placeholder="Username"
                                        ref={ node => {
@@ -63,21 +67,21 @@ export class Login extends React.Component{
 
                             </div>
 
-                            <div class="form-group Form-item">
+                            <div className="form-group Form-item">
                                 <input type="password" className="form-control Login-input"  placeholder="Password"
                                        ref={ node => {
                                         password_node = node
                                     }} />
                             </div>
 
-                            <div class="row">
+                            <div className="row">
                                 <div className="col-xs-12">
-                                    <p class="help-block">{ helpText }</p>
+                                    <p className="help-block">{ helpText }</p>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-xs-12">
+                            <div className="row">
+                                <div className="col-xs-12">
                                     <button type="submit" className="btn btn-default Login-button">LOG IN</button>
                                 </div>
                             </div>
