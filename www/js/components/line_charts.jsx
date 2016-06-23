@@ -18,6 +18,9 @@ class Label extends React.Component{
             case 'GrossMarginRate':
                 label = '毛利率';
                 break;
+            case 'Sale':
+                label = '銷量';
+                break;
             default:
                 label = '測試';
                 break;
@@ -134,7 +137,7 @@ class Chart extends React.Component{
 
                 <div className="col-xs-10">
                     <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
-                      <div className={bar} >
+                      <div className={bar} style={{width: widthPercent + '%', transition: transition}}>
                       </div>
                     </ReactCSSTransitionGroup>
                 </div>
@@ -145,19 +148,21 @@ class Chart extends React.Component{
 
 
 class LineCharts extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {label: 'GrossMargin'};
-        this.tick = this.tick.bind(this);
-    }
-    tick() {
-        this.setState({label: 'GrossMarginRate'});
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {label: 'GrossMargin'};
+    //     this.tick = this.tick.bind(this);
+    // }
+    // tick() {
+    //     this.setState({label: 'GrossMarginRate'});
+    // }
     render(){
         var blocks = [];
         var dataList = this.props.dataList;
         var latestMonthData = dataList[dataList.length-1];
-        var label = this.state.label;
+        // var label = this.state.label;
+        var label = this.props.label;
+        var chartClass = 'Chart-' + label;
 
         for (var i = dataList.length-2; i >=0 ; i--) {
             var monthData = dataList[i];
@@ -167,12 +172,30 @@ class LineCharts extends React.Component{
         }
 
         return(
-            <div>
+            <div className={chartClass}>
                 <Label label={label}/>
                 <CurrentChart item={latestMonthData.detail[label]} yymm={latestMonthData.YYMM} />
                 {blocks}
                 <div className="clearfix">
                 </div>
+            </div>
+        );
+    }
+}
+
+class MultiLineCharts extends React.Component{
+    render(){
+        var blocks = [];
+        var dataList = this.props.dataList;
+
+        for (var label in dataList[0].detail) {
+            blocks.push(<LineCharts dataList={dataList} label={label}/>);
+            console.log(label);
+        }
+
+        return(
+            <div>
+                {blocks}
             </div>
         );
     }
@@ -198,4 +221,4 @@ LineCharts.propTypes= {
 };
 
 
-module.exports = LineCharts;
+module.exports = MultiLineCharts;

@@ -14,31 +14,31 @@ var data = [
         'YYMM': 201512,
         'detail': {
             'SourceCost': {
-                'number': 456,
+                'number': 450,
                 'label': 'SourceCost',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'Amt': {
-                'number': 400,
+                'number': 600,
                 'label': 'Amt',
                 'kind': 'money',
                 'arrow': 'down',
             },
             'GrossMargin': {
-                'number': 400,
+                'number': 350,
                 'label': 'GrossMargin',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'GrossMarginRate': {
-                'number': 500,
+                'number': 400,
                 'label': 'GrossMarginRate',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'Sale': {
-                'number': 500,
+                'number': 650,
                 'label': 'Sale',
                 'kind': 'money',
                 'arrow': 'down',
@@ -94,31 +94,31 @@ var data = [
         'YYMM': 201602,
         'detail': {
             'SourceCost': {
-                'number': 456,
+                'number': 820,
                 'label': 'SourceCost',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'Amt': {
-                'number': 400,
+                'number': 760,
                 'label': 'Amt',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'GrossMargin': {
-                'number': 600,
+                'number': 750,
                 'label': 'GrossMargin',
                 'kind': 'money',
                 'arrow': 'normal',
             },
             'GrossMarginRate': {
-                'number': 500,
+                'number': 900,
                 'label': 'GrossMarginRate',
                 'kind': 'money',
                 'arrow': 'up',
             },
             'Sale': {
-                'number': 500,
+                'number': 850,
                 'label': 'Sale',
                 'kind': 'money',
                 'arrow': 'up',
