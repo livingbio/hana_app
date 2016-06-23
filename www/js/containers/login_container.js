@@ -20,10 +20,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             }
             else{
 
-                let promise = monthes(user, password);
+                let promise = years(user, password);
 
                 promise
                     .then((data) =>{
+                        console.log("success?");
                         console.log(data);
                         dispatch(loginSuccess());
                     })

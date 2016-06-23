@@ -86,7 +86,7 @@ class DataBlock extends React.Component{
 }
 
 
-class NumberItem extends React.Component{
+export class NumberItem extends React.Component{
     render(){
         var items = this.props.dataList[0].detail;
         var blocks = [];
@@ -132,6 +132,3 @@ DataBlock.propTypes = {
 NumberItem.propTypes = {
     dataList: React.PropTypes.array
 };
-
-
-module.exports = NumberItem;
