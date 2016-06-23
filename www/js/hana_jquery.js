@@ -30,40 +30,42 @@ function main() {
     });
 
 
-    function chartShown(div_name){
-        // $(div_name).show(700);
-        $(div_name).slideDown(700);
-        $(div_name).siblings().hide();
+    function chartShown(chart_name){
+
+        $(chart_name).siblings().hide();
+
+        $('.DataChart-item').hide();
+
+        $(chart_name).show(400, function(){
+            $('.DataChart-item').slideDown(800);
+        });
+
     };
 
 
+    $('.Block-SourceCost').addClass('is-shown');
     chartShown('.Chart-SourceCost');
 
 
-    $('.Block-SourceCost').click(function () {
-        chartShown('.Chart-SourceCost');
-    });
+    function blockClick(label){
+        var block_name = '.Block-' + label;
+        var chart_name = '.Chart-' + label;
 
-    $('.Block-Amt').click(function () {
-        chartShown('.Chart-Amt');
-    });
+        $(block_name).click(function(){
+            chartShown(chart_name);
+        });
+    }
 
-    $('.Block-GrossMargin').click(function () {
-        chartShown('.Chart-GrossMargin');
-    });
 
-    $('.Block-GrossMarginRate').click(function () {
-        chartShown('.Chart-GrossMarginRate');
-    });
+    blockClick('SourceCost');
+    blockClick('Amt');
+    blockClick('GrossMargin');
+    blockClick('GrossMarginRate');
+    blockClick('Sale');
+    blockClick('SBG');
 
-    $('.Block-Sale').click(function () {
-        chartShown('.Chart-Sale');
-    });
-
-    $('.Block-SBG').click(function () {
-        chartShown('.Chart-SBG');
-    });
 
 }
+
 
 $(document).ready(main);
