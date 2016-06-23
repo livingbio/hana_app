@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 class Label extends React.Component{
@@ -73,6 +74,20 @@ function barType(arrow){
 }
 
 
+function convertWidthPercent(number){
+    var numberDigit = number.toString().length;
+    var standard = 1;
+
+    for (var i = 0; i < numberDigit; i++) {
+        standard *= 10;
+    }
+
+    var widthPercent = (number/standard)*100;
+
+    return widthPercent;
+}
+
+
 class CurrentChart extends React.Component{
     render(){
         var bar = barType(this.props.item.arrow);
@@ -80,6 +95,8 @@ class CurrentChart extends React.Component{
         var newyymm = formatYYMM(this.props.yymm);
         var year = newyymm.year;
         var month = newyymm.month;
+        var widthPercent = convertWidthPercent(this.props.item.number);
+        var transition = 'width 2s linear 1s';
 
         return(
             <div className="row DataChart-item">
@@ -91,7 +108,7 @@ class CurrentChart extends React.Component{
                 </div>
 
                 <div className="col-xs-9">
-                    <div className={bar} style={{width: this.props.item.number/3}}>
+                    <div className={bar} style={{width: widthPercent + '%', transition: transition}}>
                     </div>
                 </div>
             </div>
@@ -106,6 +123,8 @@ class Chart extends React.Component{
         var newyymm = formatYYMM(this.props.yymm);
         var year = newyymm.year;
         var month = newyymm.month;
+        var widthPercent = convertWidthPercent(this.props.item.number);
+        var transition = 'width 2s ease-in 1s';
 
         return(
             <div className="row DataChart-item">
@@ -114,8 +133,10 @@ class Chart extends React.Component{
                 </div>
 
                 <div className="col-xs-10">
-                    <div className={bar} style={{width: this.props.item.number/3}}>
-                    </div>
+                    <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
+                      <div className={bar} >
+                      </div>
+                    </ReactCSSTransitionGroup>
                 </div>
             </div>
         );
@@ -124,22 +145,31 @@ class Chart extends React.Component{
 
 
 class LineCharts extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {label: 'GrossMargin'};
+        this.tick = this.tick.bind(this);
+    }
+    tick() {
+        this.setState({label: 'GrossMarginRate'});
+    }
     render(){
         var blocks = [];
         var dataList = this.props.dataList;
         var latestMonthData = dataList[dataList.length-1];
+        var label = this.state.label;
 
         for (var i = dataList.length-2; i >=0 ; i--) {
             var monthData = dataList[i];
             var items = monthData.detail;
             var yymm = monthData.YYMM;
-            blocks.push(<Chart item={items.GrossMargin} yymm={yymm} />);
+            blocks.push(<Chart item={items[label]} yymm={yymm} />);
         }
 
         return(
             <div>
-                <Label label={Object.keys(latestMonthData.detail)[2]}/>
-                <CurrentChart item={latestMonthData.detail.GrossMargin} yymm={latestMonthData.YYMM} />
+                <Label label={label}/>
+                <CurrentChart item={latestMonthData.detail[label]} yymm={latestMonthData.YYMM} />
                 {blocks}
                 <div className="clearfix">
                 </div>
