@@ -92,14 +92,15 @@ export class NumberItem extends React.Component{
 
         var blocks = [];
 
+        let id = 0;
         for (let key in items) {
-            blocks.push(<DataBlock item={items[key]}/>);
+            ++id;
+            blocks.push(<DataBlock key={id} item={items[key]}/>);
         }
 
         return(
             <div className="row DataArea" id="DataArea">
                 {blocks}
-
                 <div className="clearfix">
                 </div>
             </div>
