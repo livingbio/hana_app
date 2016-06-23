@@ -2,7 +2,7 @@ jest.unmock('../components/number_item');
 'use strict';
 
 import React from 'react';
-import Line_Charts from '../components/line_charts';
+import {LineCharts} from '../components/line_charts.jsx';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 
@@ -57,14 +57,14 @@ describe('LineCharts Component', ()=>{
 
     it('should have data chart', ()=>{
 
-        const wrapper = mount(<Line_Charts dataList={data} />);
+        const wrapper = mount(<LineCharts dataList={data} />);
         // expect(wrapper.find('.DataChart-item')).to.have.length(1);
 
     });
 
     it('should have data chart title', ()=>{
 
-        const wrapper = mount(<Line_Charts dataList={data} />);
+        const wrapper = mount(<LineCharts dataList={data} />);
         // expect(wrapper.find('.DataChart-title')).to.have.length(1);
 
     });

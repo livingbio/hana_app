@@ -28,6 +28,7 @@
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.1.0",
     "redux": "^3.5.2",
@@ -55,6 +56,7 @@
       "node",
       "jsx"
     ],
+    "testPathIgnorePatterns" : ["./platforms/","./node_modules/"],
     "unmockedModulePathPatterns": [
       "react",
       "chai",

@@ -5,7 +5,7 @@ var $ = require("jquery");
 class Arrow extends React.Component{
     render(){
         var src = '';
-        if (this.props.arrow == 'up') {
+        if (this.props.arrow === 'up') {
             src = "img/icon-up@3x.png";
         }else {
             src = "img/icon-down@3x.png";
@@ -88,12 +88,12 @@ class DataBlock extends React.Component{
 
 export class NumberItem extends React.Component{
     render(){
-        var items = this.props.dataList[0].detail;
+        var items = this.props.data.detail;
+
         var blocks = [];
 
-        for (var key in items) {
+        for (let key in items) {
             blocks.push(<DataBlock item={items[key]}/>);
-            // console.log(items[key]);
         }
 
         return(

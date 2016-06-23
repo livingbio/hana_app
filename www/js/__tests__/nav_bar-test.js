@@ -2,7 +2,7 @@ jest.unmock('../components/nav_bar');
 'use strict';
 
 import React from 'react';
-import NavBar from '../components/nav_bar';
+import {NavBar} from '../components/nav_bar.jsx';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 

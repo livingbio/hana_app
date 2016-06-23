@@ -144,7 +144,7 @@ class Chart extends React.Component{
 }
 
 
-class LineCharts extends React.Component{
+export class LineCharts extends React.Component{
     constructor(props) {
         super(props);
         this.state = {label: 'GrossMargin'};
@@ -197,5 +197,3 @@ LineCharts.propTypes= {
     dataList: React.PropTypes.array
 };
 
-
-module.exports = LineCharts;
