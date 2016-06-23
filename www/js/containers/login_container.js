@@ -15,7 +15,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onLoginSubmit: (user, password) => {
 
-
             if (!user.length || !password.length){
                 dispatch(loginIntegrityCheck(name,password));
             }
@@ -23,14 +22,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
                 let promise = years(user, password);
 
-                promise.done((data) =>{
-                    dispatch(loginSuccess());
-                });
-
-                promise.fail(() =>{
-                    console.log("error?");
-                    dispatch(loginFail());
-                });
+                promise
+                    .then((data) =>{
+                        console.log(data);
+                        dispatch(loginSuccess());
+                    })
+                    .catch(() =>{
+                        console.log("error?");
+                        dispatch(loginFail());
+                    });
 
             }
 
