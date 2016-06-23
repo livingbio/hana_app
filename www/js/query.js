@@ -1,5 +1,41 @@
 import $ from 'jquery';
 
+const baseUrl = "http://172.16.17.10:8001";
+
+
+export const monthes = ({user, password, year}) => {
+
+    return new Promise((resolve, reject) =>{
+
+        let defaultAjaxParameter = makeDefaultAjaxParameter({
+            user, password
+        });
+
+        let url = `${baseUrl}/ADVANTECH_HANA_APP/SALES_TREND.xsodata/SALESTREND?$filter=YYYY eq '${year}'&$select=YYMM&$format=json`;
+
+        console.log(url);
+
+        let monthAjaxParameter = {
+            ...defaultAjaxParameter,
+            url
+        };
+
+        let response = $.ajax( monthAjaxParameter );
+
+        response
+            .done(function(data){
+                console.log(data);
+                let results = data.d.results;
+                let months = results.map((d) => {return d.YYMM.slice(4)});
+                resolve(months);
+            })
+            .fail(function(){
+                reject('fail');
+            })
+
+    });
+};
+
 
 export const years = (user, password) => {
     return new Promise((resolve, reject) =>{

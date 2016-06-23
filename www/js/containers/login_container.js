@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 
 import {loginSuccess, loginIntegrityCheck, loginFail} from "../actions"
 import {Login} from "../components/login.jsx"
-import {years} from "../query"
+import {years, monthes} from "../query"
 
 const mapStateToProps = (state, ownProps) => {
     const authentication = state.authentication;
@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             }
             else{
 
-                let promise = years(user, password);
+                let promise = monthes(user, password);
 
                 promise
                     .then((data) =>{
