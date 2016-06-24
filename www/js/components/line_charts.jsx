@@ -109,6 +109,7 @@ class Chart extends React.Component{
 
         let line = this.props.line;
         let index = this.props.index;
+
         let onChartClick = this.props.onChartClick;
 
         var bar = "DataChart-bar-up";
@@ -118,6 +119,7 @@ class Chart extends React.Component{
                  onClick={ ()=>{
                     onChartClick(index)
                  }}>
+
                 <div className="col-xs-2">
                     {line.label}
                 </div>
@@ -170,11 +172,6 @@ export class LineCharts extends React.Component{
                     }, 0);
 
         let max = Math.max(...values);
-        let min = Math.min(...values);
-
-
-        console.log({lines});
-        console.log({sum});
 
         lines = lines.map((line)=>{
             return {
