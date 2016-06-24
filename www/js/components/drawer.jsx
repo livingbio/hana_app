@@ -1,7 +1,8 @@
 var React = require('react');
 
 
-class Drawer extends React.Component{
+export class Drawer extends React.Component{
+
     render(){
         return(
             <div id="sideBar">
@@ -10,7 +11,7 @@ class Drawer extends React.Component{
                         <img src="img/icon_profile@3x.png" width="26" height="26"/>
                     </div>
                     <div className="col-xs-10 Profile-ID">
-                        {this.props.profileID}
+                        {this.props.user}
                     </div>
                 </div>
 
@@ -20,12 +21,6 @@ class Drawer extends React.Component{
             </div>
         );
     }
-}
 
-
-Drawer.propTypes = {
-    profileID: React.PropTypes.string
 };
 
-
-module.exports = Drawer;

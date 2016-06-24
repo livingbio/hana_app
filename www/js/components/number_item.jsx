@@ -4,15 +4,23 @@ var $ = require("jquery");
 
 class Arrow extends React.Component{
     render(){
+
         var src = '';
-        if (this.props.arrow == 'up') {
+
+        if (this.props.arrow === 'up' ) {
             src = "img/icon-up@3x.png";
-        }else {
+        }else if(this.props.arrow =="down"){
             src = "img/icon-down@3x.png";
         }
+
+        let inner = '';
+        if(src){
+            inner = <img src={src} width="19" height="19" />
+        }
+
         return(
             <div className="pull-right DataBlock-arrow">
-                <img src={src} width="19" height="19" />
+                {inner}
             </div>
         );
     }
@@ -39,7 +47,7 @@ class Label extends React.Component{
                 label = '銷量';
                 break;
             default:
-                label = '測試';
+                label = this.props.label;
                 break;
         }
 
@@ -91,19 +99,24 @@ class DataBlock extends React.Component{
 }
 
 
-class NumberItem extends React.Component{
+export class NumberItem extends React.Component{
     render(){
-        var items = this.props.dataList[0].detail;
+        if(!this.props.data){
+            return (<div>empty</div>);
+        }
+        var items = this.props.data.detail;
+
         var blocks = [];
 
-        for (var key in items) {
-            blocks.push(<DataBlock item={items[key]}/>);
+        let id = 0;
+        for (let key in items) {
+            ++id;
+            blocks.push(<DataBlock key={id} item={items[key]}/>);
         }
 
         return(
             <div className="row DataArea" id="DataArea">
                 {blocks}
-
                 <div className="clearfix">
                 </div>
             </div>
@@ -122,20 +135,6 @@ Label.propTypes = {
 };
 
 
-Number.propTypes = {
-    number: React.PropTypes.number,
-    kind: React.PropTypes.string
-};
-
-
-DataBlock.propTypes = {
-    item: React.PropTypes.object
-};
-
-
 NumberItem.propTypes = {
     dataList: React.PropTypes.array
 };
-
-
-module.exports = NumberItem;

@@ -16,7 +16,7 @@ export const authentication = (state={}, action) => {
                     password: action.password
                 }
             }
-            else if (!action.user.length){
+            else if (!action.password.length){
                 return {
                     authorized: false,
                     status: "PASSWORD_EMPTY",
@@ -37,8 +37,8 @@ export const authentication = (state={}, action) => {
             return {
                 authorized: false,
                 status: "LOGIN_FAIL",
-                user: action.user,
-                password: action.password
+                user: "",
+                password: ""
             };
 
         case "LOGOUT":
@@ -47,7 +47,7 @@ export const authentication = (state={}, action) => {
                 status: "FIRST_TIME",
                 user: "",
                 password: ""
-            }
+            };
 
         default:
 

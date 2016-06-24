@@ -3,11 +3,11 @@ require("../style/all.scss");
 var React = require('react');
 var render = require('react-dom').render;
 
-var Number_Item = require("./components/number_item.jsx");
-var Line_Charts = require("./components/line_charts.jsx");
-var Nav_Bar = require("./components/nav_bar.jsx");
-var Filter = require("./components/filter.jsx");
-var Drawer = require("./components/drawer.jsx");
+var {NumberItem} = require("./components/number_item.jsx");
+var {LineCharts} = require("./components/line_charts.jsx");
+var {NavBar} = require("./components/nav_bar.jsx");
+var {Filter} = require("./components/filter.jsx");
+var {Drawer} = require("./components/drawer.jsx");
 
 var data = [
     {
@@ -140,10 +140,10 @@ class Wrapper extends React.Component{
                 <Drawer profileID='GliaCloud'/>
                 <Filter username='GliaCloud' password='GliaCloud'/>
                 <div id="main">
-                    <Nav_Bar />
+                    <NavBar />
                     <div className="container">
-                        <Number_Item dataList={this.props.dataList} />
-                        <Line_Charts dataList={this.props.dataList} />
+                        <NumberItem dataList={this.props.dataList} />
+                        <LineCharts dataList={this.props.dataList} />
                     </div>
                 </div>
             </div>

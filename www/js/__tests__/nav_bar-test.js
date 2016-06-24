@@ -1,10 +1,10 @@
-jest.unmock('../components/nav_bar');
+jest.unmock('../components/nav_bar.jsx');
 'use strict';
 
 import React from 'react';
-import NavBar from '../components/nav_bar';
+import {NavBar} from '../components/nav_bar.jsx';
 import {expect} from 'chai';
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 describe('NavBar Component', () => {
 

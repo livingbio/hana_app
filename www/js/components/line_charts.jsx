@@ -1,30 +1,11 @@
-var React = require('react');
+import React from 'react';
+import {connect} from 'react-redux';
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 class Label extends React.Component{
     render(){
-        var label= '';
-        switch (this.props.label) {
-            case 'SourceCost':
-                label = '成本';
-                break;
-            case 'Amt':
-                label = '收入';
-                break;
-            case 'GrossMargin':
-                label = '毛利';
-                break;
-            case 'GrossMarginRate':
-                label = '毛利率';
-                break;
-            case 'Sale':
-                label = '銷量';
-                break;
-            default:
-                label = '測試';
-                break;
-        }
+        let label = this.props.label;
 
         return(
             <div className="row Text-main">
@@ -122,24 +103,18 @@ class CurrentChart extends React.Component{
 
 class Chart extends React.Component{
     render(){
-        var bar = barType(this.props.item.arrow);
-        var newyymm = formatYYMM(this.props.yymm);
-        var year = newyymm.year;
-        var month = newyymm.month;
-        var widthPercent = convertWidthPercent(this.props.item.number);
-        var transition = 'width 2s ease-in 1s';
+
+        let label = this.props.label;
+        var bar = "DataChart-bar-normal";
 
         return(
             <div className="row DataChart-item">
                 <div className="col-xs-2">
-                    {year}/{month}
+                    {label}
                 </div>
 
                 <div className="col-xs-10">
-                    <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500}>
-                      <div className={bar} style={{width: widthPercent + '%', transition: transition}}>
-                      </div>
-                    </ReactCSSTransitionGroup>
+                      <div className={bar} style={{width:100}}> </div>
                 </div>
             </div>
         );
@@ -147,35 +122,21 @@ class Chart extends React.Component{
 }
 
 
-class LineCharts extends React.Component{
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {label: 'GrossMargin'};
-    //     this.tick = this.tick.bind(this);
-    // }
-    // tick() {
-    //     this.setState({label: 'GrossMarginRate'});
-    // }
+export class LineCharts extends React.Component{
     render(){
-        var blocks = [];
-        var dataList = this.props.dataList;
-        var latestMonthData = dataList[dataList.length-1];
-        // var label = this.state.label;
-        var label = this.props.label;
-        var chartClass = 'Chart-' + label;
-
-        for (var i = dataList.length-2; i >=0 ; i--) {
-            var monthData = dataList[i];
-            var items = monthData.detail;
-            var yymm = monthData.YYMM;
-            blocks.push(<Chart item={items[label]} yymm={yymm} />);
+        let label = this.props.label;
+        let points = this.props.points;
+        let blocks = [];
+        let chartClass = 'Chart-' + label;
+        for (let i = 0; i< points.length; ++i){
+            let data = points[i];
+            blocks.push(<Chart key={i} data={data}/>);
         }
 
         return(
             <div className={chartClass}>
                 <Label label={label}/>
-                <CurrentChart item={latestMonthData.detail[label]} yymm={latestMonthData.YYMM} />
-                {blocks}
+                    {blocks}
                 <div className="clearfix">
                 </div>
             </div>
@@ -202,23 +163,18 @@ class MultiLineCharts extends React.Component{
 }
 
 
-Label.propTypes = {
-    label: React.PropTypes.string
+const mapStateToProps = (state) => {
+
+    let points = [
+        {label: 2010, value: 1000},
+        {label: 2013, value: 2000}
+    ];
+
+    return {
+        label: "data",
+        points
+    };
 };
 
 
-CurrentChart.propTypes = {
-    item: React.PropTypes.object,
-    yymm:React.PropTypes.number
-};
-
-
-Chart.propTypes = CurrentChart.propTypes;
-
-
-LineCharts.propTypes= {
-    dataList: React.PropTypes.array
-};
-
-
-module.exports = MultiLineCharts;
+export const LineChartsContainer = connect(mapStateToProps)(LineCharts);

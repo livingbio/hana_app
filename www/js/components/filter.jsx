@@ -1,37 +1,81 @@
-var React = require('react');
+import React from 'react'
+import {connect} from 'react-redux'
+import * as filter_action from '../actions/filter_actions.js'
+import * as navigation from '../actions/navigation.js'
 
-class Filter extends React.Component{
+
+export class Filter extends React.Component{
     render(){
+
+        let { years, sbgs, selectedYear, selectedComparison, selectedSbg, onSubmitCallback, onCancelCallback } = this.props;
+
+        let comparisons = [['year', "依照年"], ['month', "依照月份"]];
+
+        let yearNode;
+        let comparisonNode;
+        let sbgNode;
+
         return(
-            <div id="filter" className="Background-orange Filter">
+            <div className="Background-orange Filter">
                 <div className="container">
 
                     <div className="Nav-title">
                         篩選器
                     </div>
 
-                    <form className="Filter-form">
+                    <form className="Filter-form" onSubmit={
+                        (e) => {
+                            e.preventDefault();
+
+                            selectedYear = yearNode.value.trim();
+                            selectedComparison = comparisonNode.value.trim();
+                            selectedSbg = sbgNode.value.trim();
+
+
+                            onSubmitCallback({
+                                selectedYear,
+                                selectedComparison,
+                                selectedSbg
+                            });
+
+                            return false;
+                        }
+                    }>
                         <div className="row">
                             <div className="col-xs-6">
                                 <div className="form-group Form-item">
                                     <label className="sr-only" htmlFor="queryYear">Year</label>
-                                    {/*<input type="text" className="form-control Filter-input" id="queryYear" placeholder="年"/>*/}
-                                    <select className="form-control Filter-input selectpicker">
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
+
+                                    <select className="form-control Filter-input selectpicker"
+                                            defaultValue={selectedYear}
+                                            ref={ node => {
+                                                yearNode = node
+                                            }}
+                                            name="year">
+
+                                            {years.map((year, id)=>{
+                                                return (<option key={id} value={year}>{year}</option>)
+                                            })}
+
                                     </select>
+
                                 </div>
                             </div>
 
                             <div className="col-xs-6">
                                 <div className="form-group Form-item">
                                     <label className="sr-only" htmlFor="queryMonth">Month</label>
-                                    {/*<input type="text" className="form-control Filter-input" id="queryMonth" placeholder="月"/>*/}
-                                    <select className="form-control Filter-input selectpicker">
-                                     <option value="12">12</option>
-                                     <option value="11">11</option>
-                                     <option value="10">10</option>
+                                    <select className="form-control Filter-input selectpicker"
+
+                                            defaultValue={selectedComparison}
+
+                                            ref={ node => {
+                                                comparisonNode = node
+                                            }}
+                                            name="month">
+                                        {comparisons.map((comparison, id)=>{
+                                            return (<option key={id} value={comparison[0]} >{comparison[1]}</option>)
+                                        })}
                                    </select>
                                 </div>
                             </div>
@@ -39,10 +83,15 @@ class Filter extends React.Component{
                             <div className="col-xs-12">
                                 <div className="form-group Form-item">
                                     <label className="sr-only" htmlFor="queryCompany">Company</label>
-                                    {/*<input type="text" className="form-control Filter-input" id="queryCompany" placeholder="公司"/>*/}
-                                        <select className="form-control Filter-input selectpicker">
-                                         <option value="LeadTek">LeadTek</option>
-                                         <option value="IIoT">IIoT</option>
+                                        <select className="form-control Filter-input selectpicker"
+                                                defaultValue={selectedSbg}
+                                                ref={ node => {
+                                                    sbgNode = node
+                                                }}
+                                                name="sbg">
+                                            {sbgs.map((sbg, id)=>{
+                                                return (<option key={id} value={sbg}>{sbg}</option>)
+                                            })}
                                        </select>
                                 </div>
                             </div>
@@ -50,7 +99,11 @@ class Filter extends React.Component{
 
                         <div className="row Filter-ButtonRow">
                             <div className="col-xs-6">
-                                <button type="submit" className="btn btn-default Filter-Button--cancel">取消</button>
+                                <a className="btn btn-default Filter-Button--cancel" onClick={
+                                    () => {
+                                        onCancelCallback();
+                                    }
+                                }>取消</a>
                             </div>
 
                             <div className="col-xs-6">
@@ -65,9 +118,28 @@ class Filter extends React.Component{
     }
 }
 
-Filter.propTypes= {
-    username: React.PropTypes.string,
-    password: React.PropTypes.string
+
+const mapStateToProps = (state, ownProps) => {
+
+    let filter  = state.filter;
+
+    return {
+        ...filter
+    };
 };
 
-module.exports = Filter;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSubmitCallback: ({selectedYear, selectedComparison, selectedSbg}) => {
+
+            dispatch(filter_action.updateSelectedFilter({selectedYear, selectedComparison, selectedSbg}));
+        },
+        onCancelCallback:() =>{
+            dispatch(navigation.navigateToTrend())
+        }
+    };
+};
+
+
+export const FilterContainer = connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -1,5 +1,8 @@
 var React = require('react');
+import {connect} from 'react-redux'
 
+import {loginSuccess, loginIntegrityCheck, loginFail, confirmLogin} from "../actions"
+import {years} from "../query.js"
 
 
 
@@ -49,6 +52,7 @@ export class Login extends React.Component{
                         <form onSubmit={e=>{
                                e.preventDefault();
                                onLoginSubmit(user_node.value.trim(), password_node.value.trim());
+                               return false;
                             }}>
 
                             <div className="form-group Form-item">
@@ -85,3 +89,25 @@ export class Login extends React.Component{
         );
     }
 }
+
+
+const mapStateToProps = (state) => {
+    const authentication = state.authentication;
+    return {
+        status: authentication.status
+    };
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onLoginSubmit: (user, password) => {
+            console.log('user');
+            console.log(user);
+            dispatch(confirmLogin({user, password}));
+        }
+    };
+};
+
+
+export const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);
