@@ -52,6 +52,7 @@ $opacity: 0.69;
 }
 
 .DataBlock.is-shown{
+    transition: all 0.3s;
     background: $background-DataBlock-shown;
 }
 

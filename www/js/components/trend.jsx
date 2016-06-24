@@ -2,7 +2,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {Drawer} from "./drawer.jsx"
+import {DrawerContainer} from "./drawer.jsx"
 import {Filter} from "./filter.jsx"
 import {NavBarContainer} from "./nav_bar.jsx"
 import {NumberItem} from "./number_item.jsx"
@@ -22,7 +22,7 @@ export class Trend extends React.Component{
 
         return(
             <div>
-                <Drawer user={user} />
+                <DrawerContainer user={user} />
                 <div id="main">
                     <NavBarContainer />
                     <div className="container">

@@ -26,10 +26,12 @@ function main() {
     */
 
 
+    /*
     $(document).on('click', '.DataBlock', function() {
         $('.DataBlock').removeClass('is-shown');
         $(this).addClass('is-shown');
     });
+    */
 
 
     function chartShown(chart_name){

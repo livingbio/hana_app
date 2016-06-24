@@ -82,15 +82,21 @@ class Number extends React.Component{
 
 class DataBlock extends React.Component{
     render(){
+
+
+        const category = this.props.category;
+
         var blockName = 'Block-' + this.props.item.label;
         var classNames = 'DataBlock ' + blockName;
-        const onClickCallback = this.props.onClickCallback;
-        const category = this.props.category;
+
+        if(category === this.props.currentCategory){
+            classNames += " is-shown";
+        }
 
         return(
             <div className="col-xs-6 DataBlock-col"
              onClick={()=>{
-                onClickCallback(category);
+                this.props.onClickCallback(category);
             }}>
                 <div className={classNames}>
 
@@ -108,7 +114,10 @@ class DataBlock extends React.Component{
 
 
 const mapStateToProps = (state, ownProps) => {
-    return ownProps;
+    return {
+        ...ownProps,
+        currentCategory: state.trend.category
+    };
 };
 
 
