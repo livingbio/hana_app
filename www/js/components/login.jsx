@@ -1,5 +1,8 @@
 var React = require('react');
+import {connect} from 'react-redux'
 
+import {loginSuccess, loginIntegrityCheck, loginFail, confirmLogin} from "../actions"
+import {years} from "../query.js"
 
 
 
@@ -85,3 +88,23 @@ export class Login extends React.Component{
         );
     }
 }
+
+
+const mapStateToProps = (state) => {
+    const authentication = state.authentication;
+    return {
+        status: authentication.status
+    };
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onLoginSubmit: (user, password) => {
+            dispatch(confirmLogin({user, password}));
+        }
+    };
+};
+
+
+export const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);

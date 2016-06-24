@@ -4,15 +4,23 @@ var $ = require("jquery");
 
 class Arrow extends React.Component{
     render(){
+
         var src = '';
+
         if (this.props.arrow === 'up') {
             src = "img/icon-up@3x.png";
-        }else {
+        }else if(this.props.arrow =="down"){
             src = "img/icon-down@3x.png";
         }
+
+        let inner = '';
+        if(src){
+            inner = <img src={src} width="19" height="19" />
+        }
+
         return(
             <div className="pull-right DataBlock-arrow">
-                <img src={src} width="19" height="19" />
+                {inner}
             </div>
         );
     }

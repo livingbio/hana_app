@@ -9,6 +9,7 @@
     "css-loader": "^0.23.1",
     "echarts": "^3.1.10",
     "react-redux": "^4.4.5",
+    "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1"
   },
   "devDependencies": {
@@ -56,7 +57,10 @@
       "node",
       "jsx"
     ],
-    "testPathIgnorePatterns" : ["./platforms/","./node_modules/"],
+    "testPathIgnorePatterns": [
+      "./platforms/",
+      "./node_modules/"
+    ],
     "unmockedModulePathPatterns": [
       "react",
       "chai",
