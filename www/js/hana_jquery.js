@@ -1,8 +1,7 @@
 function main() {
 
-    $(document).on('click', '.Toggle-sideBar',function(){
-
-        if( $('body').css("margin-left") =='270px' ){
+    $('.Toggle-sideBar').on('click', function(){
+        if( $('body').css("margin-left") =='270px' ) {
             $('body').animate({ 'margin-left': '0px', 'margin-right': '0px' }, 200);
         }
         else {
@@ -14,7 +13,7 @@ function main() {
     $('#filter').hide();
 
 
-    $('.Toggle-filter').click(function() {
+    $(document).on('click', '.Toggle-filter',function() {
         if ($('#filter').is(':visible')) {
             $('#filter').hide();
             $('#main').show();
@@ -25,7 +24,7 @@ function main() {
     });
 
 
-    $('.DataBlock').click(function () {
+    $(document).on('click', '.DataBlock', function() {
         $('.DataBlock').removeClass('is-shown');
         $(this).addClass('is-shown');
     });
@@ -52,7 +51,7 @@ function main() {
         var block_name = '.Block-' + label;
         var chart_name = '.Chart-' + label;
 
-        $(block_name).click(function(){
+        $(document).on('click', block_name, function() {
             chartShown(chart_name);
         });
     }
