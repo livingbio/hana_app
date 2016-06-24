@@ -6,7 +6,7 @@ export const trend = (state={}, action) => {
 
     switch (action.type) {
 
-        case "TREND_SETUP_YEAR_DATA":
+        case "TREND_SETUP_DATA":
 
             return {
                 ...state,

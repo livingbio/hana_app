@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import * as navigation_action  from '../actions/navigation.js'
 import * as filter_action from '../actions/filter_actions.js'
+import * as navigation from '../actions/navigation.js'
 
 
 export class Filter extends React.Component{
@@ -99,7 +99,11 @@ export class Filter extends React.Component{
 
                         <div className="row Filter-ButtonRow">
                             <div className="col-xs-6">
-                                <button className="btn btn-default Filter-Button--cancel">取消</button>
+                                <a className="btn btn-default Filter-Button--cancel" onClick={
+                                    () => {
+                                        onCancelCallback();
+                                    }
+                                }>取消</a>
                             </div>
 
                             <div className="col-xs-6">
@@ -130,7 +134,9 @@ const mapDispatchToProps = (dispatch) => {
         onSubmitCallback: ({selectedYear, selectedComparison, selectedSbg}) => {
 
             dispatch(filter_action.updateSelectedFilter({selectedYear, selectedComparison, selectedSbg}));
-            dispatch(navigation_action.navigateToTrend());
+        },
+        onCancelCallback:() =>{
+            dispatch(navigation.navigateToTrend())
         }
     };
 };

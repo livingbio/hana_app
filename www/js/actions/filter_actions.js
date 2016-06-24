@@ -2,7 +2,6 @@ import * as dao from "../query";
 import * as navigation from "./navigation.js";
 import * as trendAction from "./trend_action";
 
-
 export const updateSelectedFilter = ({selectedYear, selectedComparison, selectedSbg}) => {
     return (dispatch) => {
 
@@ -11,25 +10,25 @@ export const updateSelectedFilter = ({selectedYear, selectedComparison, selected
             selectedYear, selectedComparison, selectedSbg
         });
 
+        dispatch(trendAction.updateTrendData({
+            sbg: selectedSbg,
+            comparison: selectedComparison,
+            year: selectedYear
+        }));
 
-        if(selectedComparison === 'year'){
 
-            dispatch(trendAction.updateDataForAllYear({
-                sbg: selectedSbg
-            }))
-
-        }
-        else if(selectedComparison === 'month'){
-
-        }
     }
 };
 
 
 
 
-export const showFilter = ({user, password}) => {
-    return (dispatch) => {
+export const showFilter = () => {
+
+    return (dispatch, getState) => {
+
+        let user = getState().authentication.user;
+        let password = getState().authentication.password;
 
         dispatch(navigation.navigateToFilter());
 

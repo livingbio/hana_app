@@ -4,9 +4,11 @@ import {connect} from 'react-redux'
 
 import {Drawer} from "./drawer.jsx"
 import {Filter} from "./filter.jsx"
-import {NavBar} from "./nav_bar.jsx"
+import {NavBarContainer} from "./nav_bar.jsx"
 import {NumberItem} from "./number_item.jsx"
 import {LineCharts} from "./line_charts.jsx"
+
+import {makeTrendStateKey} from "../keys";
 
 
 
@@ -15,14 +17,14 @@ export class Trend extends React.Component{
     render(){
 
         let user = this.props.user;
-        let dataList = this.props.dataList;
+        let numberItem = this.props.numberItem;
 
         return(
             <div>
                 <Drawer profileID={user} />
-                <NavBar />
+                <NavBarContainer />
                 <div className="container">
-                    <NumberItem dataList={dataList} />
+                    <NumberItem data={numberItem} />
                 </div>
             </div>
         );
@@ -47,11 +49,18 @@ const mapStateToProps = (state, ownProps) => {
     let filter = state.filter;
     let trend = state.trend;
 
-    let dataKey = filter.selectedComparison + filter.sbg + authentication.user;
+    let trendStateKey = makeTrendStateKey({
+        sbg: filter.selectedSbg,
+        comparison:filter.selectedComparison,
+        year: filter.selectedYear,
+        user:authentication.user
+    });
 
+    let dataList =  trend[trendStateKey];
     return {
         user: authentication.user,
-        dataList: trend[dataKey]
+        dataList,
+        numberItem: dataList[0]
     }
 };
 
