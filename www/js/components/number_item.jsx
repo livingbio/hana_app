@@ -45,6 +45,9 @@ class Label extends React.Component{
             case 'GrossMarginRate':
                 label = '毛利率';
                 break;
+            case 'Sale':
+                label = '銷量';
+                break;
             default:
                 label = this.props.label;
                 break;
@@ -79,6 +82,8 @@ class Number extends React.Component{
 
 class DataBlock extends React.Component{
     render(){
+        var blockName = 'Block-' + this.props.item.label;
+        var classNames = 'DataBlock ' + blockName;
         const onClickCallback = this.props.onClickCallback;
         const category = this.props.category;
 
@@ -87,7 +92,7 @@ class DataBlock extends React.Component{
              onClick={()=>{
                 onClickCallback(category);
             }}>
-                <div className="DataBlock">
+                <div className={classNames}>
 
                     <Arrow arrow={this.props.item.arrow}/>
 
