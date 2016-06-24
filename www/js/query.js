@@ -123,6 +123,10 @@ export const getCompanyDataAllYear = ({user, password, sbg}) => {
 
                 let companyData = data.d.results;
                 let result = companyDataOrganized({companyData, yearOrMonth:"year"});
+                result = result
+                    .sort((a,b) => { // Bigger to small
+                        return parseInt(b.key,10) - parseInt(a.key, 10);
+                    }) ;
                 addArrow(result);
                 resolve(result);
             })
@@ -189,7 +193,7 @@ const addArrow = (result) =>{
 
             if(result[i].detail[key].number > result[j].detail[key].number){
 
-                result[i].detail[key].arrow = 'top';
+                result[i].detail[key].arrow = 'up';
 
             }
             else if(result[i].detail[key].number < result[j].detail[key].number){
