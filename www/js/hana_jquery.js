@@ -1,6 +1,6 @@
 function main() {
 
-    $('.Toggle-sideBar').on('click', function(){
+    $(document).on('click', '.Toggle-sideBar', function() {
         if( $('body').css("margin-left") =='270px' ) {
             $('body').animate({ 'margin-left': '0px', 'margin-right': '0px' }, 200);
         }
