@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {makeTrendStateKey} from "../keys.js";
 import  * as trendAction from '../actions/trend_action';
+import {translateCategory} from "../translateCategory.js";
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
@@ -150,8 +151,6 @@ const mapChartDispatchToProps = (dispatch) => {
 export const ChartContainer = connect(mapChartStateToProps, mapChartDispatchToProps)(Chart);
 
 
-
-
 export class LineCharts extends React.Component{
     render(){
         let label = this.props.label;
@@ -160,14 +159,27 @@ export class LineCharts extends React.Component{
 
         let blocks = [];
 
-        var sum = lines.reduce((a,b) =>{
-            return a.value + b.value;
-        });
+        let values = lines
+                        .map((obj)=>{
+                            return obj.value;
+                        });
+
+        let sum = values
+                    .reduce((a,b) =>{
+                        return a + b;
+                    }, 0);
+
+        let max = Math.max(...values);
+        let min = Math.min(...values);
+
+
+        console.log({lines});
+        console.log({sum});
 
         lines = lines.map((line)=>{
             return {
                 ...line,
-                propotion: ((line.value/sum) * 100)
+                propotion: ((line.value/sum) * 100 * (sum/max)) // make line better looking
             };
         });
 
@@ -190,7 +202,6 @@ export class LineCharts extends React.Component{
 
 const mapStateToProps = (state) => {
 
-
     const authentication = state.authentication;
     const filter = state.filter;
 
@@ -209,13 +220,13 @@ const mapStateToProps = (state) => {
 
         return {
             label: data.key,
-            value: data.detail[trend.category],
+            value: data.detail[trend.category].number,
             index
         }
     });
 
     return {
-        label: trend.category,
+        label: translateCategory(trend.category),
         index: trend.index,
         lines
     };

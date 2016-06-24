@@ -83,7 +83,8 @@ class DataBlock extends React.Component{
         const category = this.props.category;
 
         return(
-            <div className="col-xs-6 DataBlock-col" onClick={()=>{
+            <div className="col-xs-6 DataBlock-col"
+             onClick={()=>{
                 onClickCallback(category);
             }}>
                 <div className="DataBlock">
