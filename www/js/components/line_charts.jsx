@@ -19,7 +19,7 @@ class Label extends React.Component{
                 label = '毛利率';
                 break;
             default:
-                label = '測試';
+                label = this.props.label;
                 break;
         }
 

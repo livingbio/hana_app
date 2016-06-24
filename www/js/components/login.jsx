@@ -52,6 +52,7 @@ export class Login extends React.Component{
                         <form onSubmit={e=>{
                                e.preventDefault();
                                onLoginSubmit(user_node.value.trim(), password_node.value.trim());
+                               return false;
                             }}>
 
                             <div className="form-group Form-item">
@@ -101,6 +102,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onLoginSubmit: (user, password) => {
+            console.log('user');
+            console.log(user);
             dispatch(confirmLogin({user, password}));
         }
     };

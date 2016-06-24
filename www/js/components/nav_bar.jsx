@@ -16,7 +16,7 @@ export class NavBar extends React.Component{
                     </div>
 
                     <div className="col-xs-4 col-xs-offset-2 Nav-title">
-                        銷售趨勢
+                        {name}
                     </div>
 
                     <div className="col-xs-2 col-xs-offset-2 Toggle-filter" onClick={()=>{

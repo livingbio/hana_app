@@ -236,7 +236,7 @@ const reshapeData = ({rawData, yearOrMonth}) => {
             'Amt': labelDataOrganized(rawData.Amt, '收入', 'money', ''),
             'GrossMargin': labelDataOrganized(rawData.GrossMargin, '毛利', 'money', ''),
             'GrossMarginRate': labelDataOrganized(rawData.GrossMarginRate, '毛利率', 'percent', '')
-            //'SBG': labelDataOrganized(rawData.SBG, '公司', 'money', '')
+            //'Sale': labelDataOrganized(rawData.Sale, '公司', 'money', '')
         }
     };
 };
