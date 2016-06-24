@@ -114,6 +114,8 @@ class Chart extends React.Component{
 
         var bar = "DataChart-bar-up";
 
+
+
         return(
             <div className="row DataChart-item"
                  onClick={ ()=>{

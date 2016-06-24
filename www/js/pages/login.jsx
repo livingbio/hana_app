@@ -3,6 +3,8 @@
  */
 
 require("../../style/all.scss");
+import 'react-fastclick';
+
 var React = require('react');
 
 import { Provider } from 'react-redux';

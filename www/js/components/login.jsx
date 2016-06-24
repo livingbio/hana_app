@@ -5,7 +5,6 @@ import {loginSuccess, loginIntegrityCheck, loginFail, confirmLogin} from "../act
 import {years} from "../query.js"
 
 
-
 export class Login extends React.Component{
 
     render(){
