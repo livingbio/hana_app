@@ -132,6 +132,24 @@ $opacity: 0.69;
     margin-top: 80%;
 }
 
+@media screen and (max-width: 340px) {
+    .Login-form{
+        margin-top: 27vh;
+    }
+}
+
+@media screen and (max-width: 411px) and (min-width: 340px) {
+    .Login-form{
+        margin-top: 35vh;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .Login-form{
+        margin-top: 40vh;
+    }
+}
+
 
 .Login-input{
     font-size: 18px;
