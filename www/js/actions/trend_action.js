@@ -2,6 +2,23 @@ import * as dao from "../query";
 import * as navigation from "./navigation.js";
 import {makeTrendStateKey} from "../keys";
 
+
+export const selectCategory = (category) => {
+   return {
+       type: "TREND_CHOOSE_CATEGORY",
+       category
+   }
+};
+
+
+export const selectSeriesIndex = (index) => {
+    return {
+        type: "TREND_CHOOSE_SERIES_INDEX",
+        index
+    }
+};
+
+
 export const updateTrendData = ({sbg, comparison, year})=>{
 
     return (dispatch, getState) => {

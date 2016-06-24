@@ -11,7 +11,7 @@ import { createStore, applyMiddleware } from 'redux';
 import hanaApp from '../reducers';
 import { render } from 'react-dom';
 import { AppContainer } from "../components/app.jsx";
-import { getCompanyDataInYear} from "../query.js";
+import { getCompanyDataInYear } from "../query.js";
 import thunk from 'redux-thunk';
 import {LineChartsContainer} from '../components/line_charts.jsx';
 let store = createStore(
@@ -35,4 +35,4 @@ render(
     </Provider>,
     document.getElementById("main")
 );
-*/
+ */
