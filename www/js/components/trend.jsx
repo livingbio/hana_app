@@ -7,8 +7,9 @@ import {Filter} from "./filter.jsx"
 import {NavBarContainer} from "./nav_bar.jsx"
 import {NumberItem} from "./number_item.jsx"
 import {LineCharts} from "./line_charts.jsx"
+import {LineChartsContainer} from './line_charts.jsx';
 
-import {makeTrendStateKey} from "../keys";
+import {makeTrendStateKey} from "../keys.js";
 
 
 
@@ -26,6 +27,7 @@ export class Trend extends React.Component{
                     <NavBarContainer />
                     <div className="container">
                         <NumberItem data={numberItem} />
+                        <LineChartsContainer/>
                     </div>
                 </div>
             </div>
@@ -53,7 +55,7 @@ const mapStateToProps = (state, ownProps) => {
     let numberItem = null;
 
     if(dataList.length){
-        numberItem = dataList[0]
+        numberItem = dataList[trend.index];
     }
 
     return {

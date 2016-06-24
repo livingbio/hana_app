@@ -1,4 +1,11 @@
-export const trend = (state={}, action) => {
+export const trend = (
+    state={
+        category: "GrossMargin",
+        index: 0
+    } ,
+    action
+
+) => {
 
     console.log("handle trend event");
     console.log(action);
@@ -14,8 +21,23 @@ export const trend = (state={}, action) => {
             };
 
 
+        case "TREND_CHOOSE_CATEGORY":
+
+            return {
+                ...state,
+                category: action.category
+            };
+
+        case "TREND_CHOOSE_SERIES_INDEX":
+            return {
+                ...state,
+                index: action.index
+            };
+
         default:
             return state;
 
     }
 };
+
+

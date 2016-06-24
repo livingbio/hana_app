@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {makeTrendStateKey} from "../keys.js";
+import  * as trendAction from '../actions/trend_action';
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
@@ -9,10 +11,10 @@ class Label extends React.Component{
 
         return(
             <div className="row Text-main">
-                <div className="col-xs-2">
+                <div className="col-xs-3">
                     年/月
                 </div>
-                <div className="col-xs-4 col-xs-offset-3 text-center">
+                <div className="col-xs-4 col-xs-offset-1 text-center">
                     <div className="DataChart-title">
                         {label}
                     </div>
@@ -36,7 +38,7 @@ function formatYYMM(yymm) {
     }
     return {
         'year': year,
-        'month': month,
+        'month': month
     };
 }
 
@@ -104,41 +106,82 @@ class CurrentChart extends React.Component{
 class Chart extends React.Component{
     render(){
 
-        let label = this.props.label;
-        var bar = "DataChart-bar-normal";
+        let line = this.props.line;
+        let index = this.props.index;
+        let onChartClick = this.props.onChartClick;
+
+        var bar = "DataChart-bar-up";
 
         return(
-            <div className="row DataChart-item">
+            <div className="row DataChart-item"
+                 onClick={ ()=>{
+                    onChartClick(index)
+                 }}>
                 <div className="col-xs-2">
-                    {label}
+                    {line.label}
                 </div>
 
-                <div className="col-xs-10">
-                      <div className={bar} style={{width:100}}> </div>
+                <div className="col-xs-9">
+                      <div className={bar} style={{width:`${line.propotion}%`}}> </div>
                 </div>
             </div>
         );
     }
 }
 
+const mapChartStateToProps = (state, ownProps) => {
+    let trend = state.trend;
+    return {
+        ...ownProps,
+        currentIndex: trend.index
+    };
+};
+
+const mapChartDispatchToProps = (dispatch) => {
+    return {
+        onChartClick: (index) => {
+            console.log('index');
+            console.log(index);
+            dispatch(trendAction.selectSeriesIndex(index));
+        }
+    };
+};
+
+export const ChartContainer = connect(mapChartStateToProps, mapChartDispatchToProps)(Chart);
+
+
+
 
 export class LineCharts extends React.Component{
     render(){
         let label = this.props.label;
-        let points = this.props.points;
+        let lines = this.props.lines;
+        let index = this.props.index;  // TODO, current index
+
         let blocks = [];
         let chartClass = 'Chart-' + label;
-        for (let i = 0; i< points.length; ++i){
-            let data = points[i];
-            blocks.push(<Chart key={i} data={data}/>);
+
+        var sum = lines.reduce((a,b) =>{
+            return a.value + b.value;
+        });
+
+        lines = lines.map((line)=>{
+            return {
+                ...line,
+                propotion: ((line.value/sum) * 100)
+            };
+        });
+
+        for (let i = 0; i< lines.length; ++i){
+            let line = lines[i];
+            blocks.push(<ChartContainer key={i} line={line} index={i}/>);
         }
 
         return(
             <div className={chartClass}>
                 <Label label={label}/>
                     {blocks}
-                <div className="clearfix">
-                </div>
+                <div className="clearfix"> </div>
             </div>
         );
     }
@@ -163,16 +206,37 @@ class MultiLineCharts extends React.Component{
 }
 
 
+
 const mapStateToProps = (state) => {
 
-    let points = [
-        {label: 2010, value: 1000},
-        {label: 2013, value: 2000}
-    ];
+
+    const authentication = state.authentication;
+    const filter = state.filter;
+
+    const trend = state.trend;
+
+    let trendStateKey = makeTrendStateKey({
+        sbg: filter.selectedSbg,
+        comparison: filter.selectedComparison,
+        year: filter.selectedYear,
+        user: authentication.user
+    });
+
+    const series = trend[trendStateKey];
+
+    let lines = series.map((data, index)=>{
+
+        return {
+            label: data.key,
+            value: data.detail[trend.category],
+            index
+        }
+    });
 
     return {
-        label: "data",
-        points
+        label: trend.category,
+        index: trend.index,
+        lines
     };
 };
 

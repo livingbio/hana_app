@@ -1,5 +1,7 @@
 var React = require('react');
 var $ = require("jquery");
+import * as trendAction from "../actions/trend_action.js";
+import {connect} from 'react-redux'
 
 
 class Arrow extends React.Component{
@@ -82,8 +84,13 @@ class DataBlock extends React.Component{
     render(){
         var blockName = 'Block-' + this.props.item.label;
         var classNames = 'DataBlock ' + blockName;
+        const onClickCallback = this.props.onClickCallback;
+        const category = this.props.category;
+
         return(
-            <div className="col-xs-6 DataBlock-col">
+            <div className="col-xs-6 DataBlock-col" onClick={()=>{
+                onClickCallback(category);
+            }}>
                 <div className={classNames}>
 
                     <Arrow arrow={this.props.item.arrow}/>
@@ -99,6 +106,23 @@ class DataBlock extends React.Component{
 }
 
 
+const mapStateToProps = (state, ownProps) => {
+    return ownProps;
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onClickCallback: (category) => {
+            dispatch(trendAction.selectCategory(category))
+        }
+    };
+};
+
+
+export const DataBlockContainer = connect(mapStateToProps, mapDispatchToProps)(DataBlock);
+
+
 export class NumberItem extends React.Component{
     render(){
         if(!this.props.data){
@@ -111,7 +135,7 @@ export class NumberItem extends React.Component{
         let id = 0;
         for (let key in items) {
             ++id;
-            blocks.push(<DataBlock key={id} item={items[key]}/>);
+            blocks.push(<DataBlockContainer key={id} item={items[key]} category={key}/>);
         }
 
         return(
