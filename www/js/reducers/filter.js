@@ -6,8 +6,8 @@ export const filter = (
     state={
         years:[],
         monthes:[],
-        selectedComparison: "year",
-        selectedYear: 2016,
+        selectedComparison: "month",
+        selectedYear: 2015,
         sbgs:[]
     },
     action) => {

@@ -10,9 +10,10 @@ function main() {
     });
 
 
-    $('#filter').hide();
+    //$('#filter').hide();
 
 
+    /*
     $(document).on('click', '.Toggle-filter',function() {
         if ($('#filter').is(':visible')) {
             $('#filter').hide();
@@ -22,6 +23,7 @@ function main() {
             $('#main').hide();
         }
     });
+    */
 
 
     $(document).on('click', '.DataBlock', function() {
@@ -43,6 +45,7 @@ function main() {
     };
 
 
+    /*
     $('.Block-SourceCost').addClass('is-shown');
     chartShown('.Chart-SourceCost');
 
@@ -64,6 +67,7 @@ function main() {
     blockClick('Sale');
     blockClick('SBG');
 
+    */
 
 }
 
