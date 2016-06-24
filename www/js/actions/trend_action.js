@@ -16,6 +16,7 @@ export const updateTrendData = ({sbg, comparison, year})=>{
         let trendState = getState().trend;
 
         if(trendState[cacheDataKey]){
+            dispatch(navigation.navigateToTrend());
             return;
         }
 

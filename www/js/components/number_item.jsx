@@ -96,6 +96,9 @@ class DataBlock extends React.Component{
 
 export class NumberItem extends React.Component{
     render(){
+        if(!this.props.data){
+            return (<div>empty</div>);
+        }
         var items = this.props.data.detail;
 
         var blocks = [];

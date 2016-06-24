@@ -41,21 +41,24 @@ const mapStateToProps = (state, ownProps) => {
     let filter = state.filter;
     let trend = state.trend;
 
-    console.log('state');
-    console.log(state);
-
     let trendStateKey = makeTrendStateKey({
         sbg: filter.selectedSbg,
-        comparison:filter.selectedComparison,
+        comparison: filter.selectedComparison,
         year: filter.selectedYear,
-        user:authentication.user
+        user: authentication.user
     });
 
     let dataList =  trend[trendStateKey];
+
+    let numberItem = null;
+
+    if(dataList.length){
+        numberItem = dataList[0]
+    }
+
     return {
         user: authentication.user,
-        dataList,
-        numberItem: dataList[0]
+        dataList, numberItem
     }
 };
 
