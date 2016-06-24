@@ -109,23 +109,31 @@ class Chart extends React.Component{
 
         let line = this.props.line;
         let index = this.props.index;
+        let currentIndex = this.props.currentIndex;
+
+        let isCurrent = false;
+        let extraIcon = '';
+        if(index === currentIndex){
+            isCurrent = true;
+            extraIcon = (<img src="img/icon-current@3x.png" width="6" height="8" />)
+        }
 
         let onChartClick = this.props.onChartClick;
 
         var bar = "DataChart-bar-up";
 
-
+        if(isCurrent){
+            bar = "DataChart-bar-normal"
+        }
 
         return(
             <div className="row DataChart-item"
                  onClick={ ()=>{
                     onChartClick(index)
                  }}>
-
-                <div className="col-xs-2">
+                <div className="col-xs-2 text-right">
                     {line.label}
                 </div>
-
                 <div className="col-xs-9">
                       <div className={bar} style={{width:`${line.propotion}%`}}> </div>
                 </div>
