@@ -20,7 +20,7 @@ export class Drawer extends React.Component{
                     </div>
                 </div>
 
-                <div className="" onClick={logOutCallback}>
+                <div className="Logout" onClick={logOutCallback}>
                     Log out
                 </div>
             </div>

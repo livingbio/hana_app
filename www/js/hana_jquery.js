@@ -9,6 +9,10 @@ function main() {
         }
     });
 
+    $(document).on('click', '.Logout', function() {
+        $('body').animate({ 'margin-left': '0px', 'margin-right': '0px' }, 100);
+    });
+
 
     //$('#filter').hide();
 
