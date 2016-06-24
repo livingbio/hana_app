@@ -159,6 +159,7 @@ export class LineCharts extends React.Component{
         let index = this.props.index;  // TODO, current index
 
         let blocks = [];
+        let chartClass = 'Chart-' + label;
 
         var sum = lines.reduce((a,b) =>{
             return a.value + b.value;
@@ -177,10 +178,28 @@ export class LineCharts extends React.Component{
         }
 
         return(
-            <div>
+            <div className={chartClass}>
                 <Label label={label}/>
                     {blocks}
                 <div className="clearfix"> </div>
+            </div>
+        );
+    }
+}
+
+class MultiLineCharts extends React.Component{
+    render(){
+        var blocks = [];
+        var dataList = this.props.dataList;
+
+        for (var label in dataList[0].detail) {
+            blocks.push(<LineCharts dataList={dataList} label={label}/>);
+            console.log(label);
+        }
+
+        return(
+            <div>
+                {blocks}
             </div>
         );
     }
@@ -223,4 +242,3 @@ const mapStateToProps = (state) => {
 
 
 export const LineChartsContainer = connect(mapStateToProps)(LineCharts);
-
