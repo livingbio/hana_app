@@ -7,7 +7,7 @@ class Arrow extends React.Component{
 
         var src = '';
 
-        if (this.props.arrow === 'up') {
+        if (this.props.arrow === 'up' ) {
             src = "img/icon-up@3x.png";
         }else if(this.props.arrow =="down"){
             src = "img/icon-down@3x.png";
@@ -44,7 +44,7 @@ class Label extends React.Component{
                 label = '毛利率';
                 break;
             default:
-                label = '測試';
+                label = this.props.label;
                 break;
         }
 
@@ -96,6 +96,9 @@ class DataBlock extends React.Component{
 
 export class NumberItem extends React.Component{
     render(){
+        if(!this.props.data){
+            return (<div>empty</div>);
+        }
         var items = this.props.data.detail;
 
         var blocks = [];
@@ -124,17 +127,6 @@ Arrow.propTypes = {
 
 Label.propTypes = {
     label: React.PropTypes.string
-};
-
-
-Number.propTypes = {
-    number: React.PropTypes.number,
-    kind: React.PropTypes.string
-};
-
-
-DataBlock.propTypes = {
-    item: React.PropTypes.object
 };
 
 

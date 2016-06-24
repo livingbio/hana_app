@@ -1,9 +1,10 @@
 import * as dao from "../query";
 import * as filter from "./filter_actions";
 
-export const loginSuccess = () => {
+export const loginSuccess = ({user, password}) => {
     return {
-        type: "LOGIN_SUCCESS"
+        type: "LOGIN_SUCCESS",
+        user, password
     }
 };
 
@@ -27,7 +28,7 @@ export const confirmLogin = ({user, password}) => {
         promise
             .then((data) =>{
                 console.log('success of year api');
-                dispatch(loginSuccess());
+                dispatch(loginSuccess({user, password}));
                 dispatch(filter.showFilter({user, password}));
             })
             .catch((data) =>{

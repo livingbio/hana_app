@@ -13,7 +13,7 @@ import { render } from 'react-dom';
 import { AppContainer } from "../components/app.jsx";
 import { getCompanyDataInYear} from "../query.js";
 import thunk from 'redux-thunk';
-
+import {LineChartsContainer} from '../components/line_charts.jsx';
 let store = createStore(
     hanaApp,
     applyMiddleware(thunk)
@@ -27,3 +27,12 @@ render(
     </Provider>,
     document.getElementById("main")
 );
+
+/*
+render(
+    <Provider store={store}>
+        <LineChartsContainer/>
+    </Provider>,
+    document.getElementById("main")
+);
+*/

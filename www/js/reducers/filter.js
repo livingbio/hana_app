@@ -6,7 +6,7 @@ export const filter = (
     state={
         years:[],
         monthes:[],
-        selectedComparison: "month",
+        selectedComparison: "year",
         selectedYear: 2016,
         sbgs:[]
     },

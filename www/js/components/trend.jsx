@@ -21,23 +21,15 @@ export class Trend extends React.Component{
 
         return(
             <div>
-                <Drawer profileID={user} />
-                <NavBarContainer />
-                <div className="container">
-                    <NumberItem data={numberItem} />
+                <Drawer user={user} />
+                <div id="main">
+                    <NavBarContainer />
+                    <div className="container">
+                        <NumberItem data={numberItem} />
+                    </div>
                 </div>
             </div>
         );
-        /*
-         <div id="main">
-         <NavBar />
-         <div className="container">
-         <NumberItem dataList={this.props.dataList} />
-         <LineCharts dataList={this.props.dataList} />
-         </div>
-         </div>
-         */
-
     }
 
 }
@@ -51,16 +43,22 @@ const mapStateToProps = (state, ownProps) => {
 
     let trendStateKey = makeTrendStateKey({
         sbg: filter.selectedSbg,
-        comparison:filter.selectedComparison,
+        comparison: filter.selectedComparison,
         year: filter.selectedYear,
-        user:authentication.user
+        user: authentication.user
     });
 
     let dataList =  trend[trendStateKey];
+
+    let numberItem = null;
+
+    if(dataList.length){
+        numberItem = dataList[0]
+    }
+
     return {
         user: authentication.user,
-        dataList,
-        numberItem: dataList[0]
+        dataList, numberItem
     }
 };
 
