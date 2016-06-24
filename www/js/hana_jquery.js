@@ -1,11 +1,11 @@
 function main() {
 
     $(document).on('click', '.Toggle-sideBar', function() {
-        if( $('body').css("margin-left") =='270px' ) {
+        if( $('body').css("margin-left") =='250px' ) {
             $('body').animate({ 'margin-left': '0px', 'margin-right': '0px' }, 200);
         }
         else {
-            $('body').animate({ 'margin-left': '270px', 'margin-right': '-270px' }, 200);
+            $('body').animate({ 'margin-left': '250px', 'margin-right': '-250px' }, 200);
         }
     });
 
