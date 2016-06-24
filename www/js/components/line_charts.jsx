@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {makeTrendStateKey} from "../keys.js";
+import  * as trendAction from '../actions/trend_action';
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
@@ -36,7 +38,7 @@ function formatYYMM(yymm) {
     }
     return {
         'year': year,
-        'month': month,
+        'month': month
     };
 }
 
@@ -105,10 +107,16 @@ class Chart extends React.Component{
     render(){
 
         let line = this.props.line;
+        let index = this.props.index;
+        let onChartClick = this.props.onChartClick;
+
         var bar = "DataChart-bar-up";
 
         return(
-            <div className="row DataChart-item">
+            <div className="row DataChart-item"
+                 onClick={ ()=>{
+                    onChartClick(index)
+                 }}>
                 <div className="col-xs-2">
                     {line.label}
                 </div>
@@ -121,11 +129,35 @@ class Chart extends React.Component{
     }
 }
 
+const mapChartStateToProps = (state, ownProps) => {
+    let trend = state.trend;
+    return {
+        ...ownProps,
+        currentIndex: trend.index
+    };
+};
+
+const mapChartDispatchToProps = (dispatch) => {
+    return {
+        onChartClick: (index) => {
+            console.log('index');
+            console.log(index);
+            dispatch(trendAction.selectSeriesIndex(index));
+        }
+    };
+};
+
+export const ChartContainer = connect(mapChartStateToProps, mapChartDispatchToProps)(Chart);
+
+
+
 
 export class LineCharts extends React.Component{
     render(){
         let label = this.props.label;
         let lines = this.props.lines;
+        let index = this.props.index;  // TODO, current index
+
         let blocks = [];
 
         var sum = lines.reduce((a,b) =>{
@@ -141,37 +173,54 @@ export class LineCharts extends React.Component{
 
         for (let i = 0; i< lines.length; ++i){
             let line = lines[i];
-            blocks.push(<Chart key={i} line={line}/>);
+            blocks.push(<ChartContainer key={i} line={line} index={i}/>);
         }
 
         return(
             <div>
                 <Label label={label}/>
                     {blocks}
-                <div className="clearfix">
-                </div>
+                <div className="clearfix"> </div>
             </div>
         );
     }
 }
 
 
+
 const mapStateToProps = (state) => {
 
 
-    let lines = [
+    const authentication = state.authentication;
+    const filter = state.filter;
 
-        {label: 2010, value: 1000},
-        {label: 2013, value: 2000}
+    const trend = state.trend;
 
-    ];
+    let trendStateKey = makeTrendStateKey({
+        sbg: filter.selectedSbg,
+        comparison: filter.selectedComparison,
+        year: filter.selectedYear,
+        user: authentication.user
+    });
+
+    const series = trend[trendStateKey];
+
+    let lines = series.map((data, index)=>{
+
+        return {
+            label: data.key,
+            value: data.detail[trend.category],
+            index
+        }
+    });
 
     return {
-        label: "data",
+        label: trend.category,
+        index: trend.index,
         lines
     };
 };
 
 
-
 export const LineChartsContainer = connect(mapStateToProps)(LineCharts);
+

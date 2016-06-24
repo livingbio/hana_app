@@ -21,18 +21,18 @@ let store = createStore(
 
 getCompanyDataInYear({user:"DEV01", password:"LeadTek01", sbg:"IIoT", year:"2015"});
 
-/*
 render(
     <Provider store={store}>
         <AppContainer/>
     </Provider>,
     document.getElementById("main")
 );
- */
 
+/*
 render(
     <Provider store={store}>
         <LineChartsContainer/>
     </Provider>,
     document.getElementById("main")
 );
+ */
