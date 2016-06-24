@@ -9,6 +9,7 @@
     "css-loader": "^0.23.1",
     "echarts": "^3.1.10",
     "react-redux": "^4.4.5",
+    "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.1.0",
     "redux": "^3.5.2",
@@ -54,6 +56,10 @@
       "json",
       "node",
       "jsx"
+    ],
+    "testPathIgnorePatterns": [
+      "./platforms/",
+      "./node_modules/"
     ],
     "unmockedModulePathPatterns": [
       "react",

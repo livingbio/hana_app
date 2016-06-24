@@ -1,26 +1,68 @@
 
-var React = require('react');
+import React from 'react'
+import {connect} from 'react-redux'
 
-var Number_Item = require("./number_item.jsx");
-var Line_Charts = require("./line_charts.jsx");
-var Nav_Bar = require("./nav_bar.jsx");
-var Filter = require("./filter.jsx");
-var Drawer = require("./drawer.jsx");
+import {Drawer} from "./drawer.jsx"
+import {Filter} from "./filter.jsx"
+import {NavBarContainer} from "./nav_bar.jsx"
+import {NumberItem} from "./number_item.jsx"
+import {LineCharts} from "./line_charts.jsx"
+
+import {makeTrendStateKey} from "../keys";
+
+
 
 export class Trend extends React.Component{
+
     render(){
+
+        let user = this.props.user;
+        let numberItem = this.props.numberItem;
+
         return(
             <div>
-                <Drawer profileID='GliaCloud'/>
-                <Filter username='GliaCloud' password='GliaCloud'/>
-                <div id="main">
-                    <Nav_Bar />
-                    <div className="container">
-                        <Number_Item dataList={this.props.dataList} />
-                        <Line_Charts dataList={this.props.dataList} />
-                    </div>
+                <Drawer profileID={user} />
+                <NavBarContainer />
+                <div className="container">
+                    <NumberItem data={numberItem} />
                 </div>
             </div>
         );
+        /*
+         <div id="main">
+         <NavBar />
+         <div className="container">
+         <NumberItem dataList={this.props.dataList} />
+         <LineCharts dataList={this.props.dataList} />
+         </div>
+         </div>
+         */
+
     }
+
 }
+
+
+const mapStateToProps = (state, ownProps) => {
+
+    const authentication = state.authentication;
+    let filter = state.filter;
+    let trend = state.trend;
+
+    let trendStateKey = makeTrendStateKey({
+        sbg: filter.selectedSbg,
+        comparison:filter.selectedComparison,
+        year: filter.selectedYear,
+        user:authentication.user
+    });
+
+    let dataList =  trend[trendStateKey];
+    return {
+        user: authentication.user,
+        dataList,
+        numberItem: dataList[0]
+    }
+};
+
+
+export const TrendContainer = connect(mapStateToProps)(Trend);

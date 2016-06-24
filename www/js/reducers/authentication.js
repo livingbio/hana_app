@@ -47,7 +47,7 @@ export const authentication = (state={}, action) => {
                 status: "FIRST_TIME",
                 user: "",
                 password: ""
-            }
+            };
 
         default:
 

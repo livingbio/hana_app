@@ -1,18 +1,21 @@
-/**
- * Created by tim on 6/22/16.
- */
+export const trend = (state={}, action) => {
 
-export const authentication = (state={}, action) => {
+    console.log("handle trend event");
+    console.log(action);
+    console.log(state);
+
+    switch (action.type) {
+
+        case "TREND_SETUP_DATA":
+
+            return {
+                ...state,
+                [action.key]:action.data
+            };
 
 
-    console.log("handle trend");
-    switch (action.type){
-        case "VIEW_DEFAULT":
-        case "LOGIN_SUCCESS":
-        case "LOGIN_FAIL":
-        case "LOGOUT":
         default:
             return state;
-    }
 
+    }
 };

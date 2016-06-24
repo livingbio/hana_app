@@ -79,7 +79,7 @@ export const years = ({user, password}) => {
             user, password
         });
 
-        let url = `${BASE_URL}/172.16.17.10:8001/ADVANTECH_HANA_APP/SALES_TREND.xsodata/SALESTREND?$select=YYYY&$format=json`;
+        let url = `${BASE_URL}/ADVANTECH_HANA_APP/SALES_TREND.xsodata/SALESTREND?$select=YYYY&$format=json`;
 
         let yearsAjaxParameter = {
             ...defaultAjaxParameter,
@@ -123,7 +123,7 @@ export const getCompanyDataAllYear = ({user, password, sbg}) => {
 
                 let companyData = data.d.results;
                 let result = companyDataOrganized({companyData, yearOrMonth:"year"});
-                console.log(result);
+                addArrow(result);
                 resolve(result);
             })
             .fail(() => {
@@ -159,11 +159,12 @@ export const getCompanyDataInYear= ({user, password, sbg, year}) => {
                             .map((data) => {
                                 return {...data, key: data.key.slice(4)};
                             })
-                            .sort((a,b) => {
+                            .sort((a,b) => { // Bigger to small
                                 return parseInt(b.key,10) - parseInt(a.key, 10);
                             }) ;
 
-                console.log(result);
+                addArrow(result);
+
                 resolve(result);
             })
             .fail(() => {
@@ -173,13 +174,42 @@ export const getCompanyDataInYear= ({user, password, sbg, year}) => {
 };
 
 
+const addArrow = (result) =>{
+
+    let keys = ['SourceCost', 'Amt', 'GrossMargin', 'GrossMarginRate'];
+
+    // add arrow to data
+    for(let i = 0 ; i< result.length -1; ++i){
+
+        let j = i+1;
+
+        for(let k = 0 ; k< keys.length; ++k){
+
+            let key = keys[k];
+
+            if(result[i].detail[key].number > result[j].detail[key].number){
+
+                result[i].detail[key].arrow = 'top';
+
+            }
+            else if(result[i].detail[key].number < result[j].detail[key].number){
+
+                result[i].detail[key].arrow = 'down';
+            }
+        }
+    }
+};
+
+
 const companyDataOrganized = ({companyData, yearOrMonth})=>{
     let result = [];
+
     for (var i = 0; i < companyData.length; i++) {
         let rawData = companyData[i];
         let data = reshapeData({rawData, yearOrMonth});
         result.push(data);
     }
+
     return result;
 };
 
@@ -198,11 +228,11 @@ const reshapeData = ({rawData, yearOrMonth}) => {
         keyType,
         'key': rawData[key],
         'detail': {
-            'SourceCost': labelDataOrganized(rawData.SourceCost, '成本', 'money', 'up'),
-            'Amt': labelDataOrganized(rawData.Amt, '收入', 'money', 'down'),
-            'GrossMargin': labelDataOrganized(rawData.GrossMargin, '毛利', 'money', 'down'),
-            'GrossMarginRate': labelDataOrganized(rawData.GrossMarginRate, '毛利率', 'percent', 'up'),
-            'SBG': labelDataOrganized(rawData.SBG, '公司', 'money', 'up')
+            'SourceCost': labelDataOrganized(rawData.SourceCost, '成本', 'money', ''),
+            'Amt': labelDataOrganized(rawData.Amt, '收入', 'money', ''),
+            'GrossMargin': labelDataOrganized(rawData.GrossMargin, '毛利', 'money', ''),
+            'GrossMarginRate': labelDataOrganized(rawData.GrossMarginRate, '毛利率', 'percent', '')
+            //'SBG': labelDataOrganized(rawData.SBG, '公司', 'money', '')
         }
     };
 };
