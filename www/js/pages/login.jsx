@@ -1,9 +1,7 @@
-/**
- * Created by tim on 6/22/16.
- */
-
 require("../../style/all.scss");
 import 'react-fastclick';
+import $ from 'jquery';
+import {main} from '../hana_jquery';
 
 var React = require('react');
 
@@ -20,6 +18,8 @@ let store = createStore(
     hanaApp,
     applyMiddleware(thunk)
 );
+
+// Comment the file in the future
 
 getCompanyDataInYear({user:"DEV01", password:"LeadTek01", sbg:"IIoT", year:"2015"});
 
@@ -38,3 +38,5 @@ render(
     document.getElementById("main")
 );
  */
+
+$(document).ready(main);

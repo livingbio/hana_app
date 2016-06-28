@@ -41,7 +41,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/jest --coverage",
-    "watch": "webpack --progress --colors --watch"
+    "watch": "webpack --progress --colors --watch",
+    "mac_unsafe_chrome": "open -n -a  \"/Applications/Google Chrome.app\"  --args  --user-data-dir=\"/tmp/\" --disable-web-security"
   },
   "repository": {
     "type": "git",
