@@ -1,6 +1,9 @@
+var webpack = require('webpack');
+
 module.exports = {
     devtool: "#inline-source-map",
     entry: {
+        vendors: ['react', 'jquery'],
         hana: "./www/js/hana.jsx",
         login: "./www/js/pages/login.jsx"
     },
@@ -23,8 +26,10 @@ module.exports = {
                 }
             }
         ]
-
     },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendors", /* filename= */"vendor.bundle.js")
+    ],
     resolve: {
         // extensions: ['', 'js', 'jsx', 'node', 'json'],
         moduleDirectories: ['node_modules', 'bower_components', 'shared'],
