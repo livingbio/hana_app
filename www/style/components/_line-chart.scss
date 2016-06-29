@@ -1,0 +1,28 @@
+
+@mixin data-chart-common(){
+  transition: all .3s;
+}
+
+.DataChart-bar-up{
+  @include data-chart-common();
+  border: 1px solid $color-green;
+  margin-top: 8px;
+}
+
+.DataChart-bar-normal{
+  @include data-chart-common();
+  border: 1px solid $color-white;
+  margin-top: 8px;
+}
+
+.DataChart-bar-down{
+  @include data-chart-common();
+  border: 1px solid $color-red;
+  margin-top: 8px;
+}
+
+.DataChart-item{
+  margin-top: 10px;
+  font-size: 12px;
+}
+

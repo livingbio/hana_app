@@ -1,5 +1,3 @@
-@import "variable";
-
 $color-blue: #2e354d;
 $color-orange: #f59a00;
 $color-green: #7bdc93;
@@ -8,6 +6,10 @@ $color-white: #ffffff;
 $background-DataBlock: #3e4660;
 $background-DataBlock-shown: #515976;
 $opacity: 0.69;
+
+@import "components/drawer";
+@import "components/line-chart";
+
 
 .Background-blue{
     background: $color-blue;
@@ -69,28 +71,9 @@ $opacity: 0.69;
     margin-top: 50px;
 }
 
-.DataChart-bar-up{
-    border: 1px solid $color-green;
-    margin-top: 8px;
-}
-
-.DataChart-bar-normal{
-    border: 1px solid $color-white;
-    margin-top: 8px;
-}
-
-.DataChart-bar-down{
-    border: 1px solid $color-red;
-    margin-top: 8px;
-}
 
 .DataBlock-bar-is-shown{
     border-width: 2px;
-}
-
-.DataChart-item{
-    margin-top: 10px;
-    font-size: 12px;
 }
 
 .DataChart-title{
@@ -253,17 +236,6 @@ $opacity: 0.69;
     border-color: $color-white;
 }
 
-#sideBar{
-    background-color:#20263b;
-    margin: -25px;
-    margin-left: -275px;
-    height: 100%;
-    position: fixed;
-    width:250px;
-    padding: 20px;
-    padding-left: 40px;
-    font-size: 24px;
-}
 
 .Profile{
     margin-bottom: 30px;

@@ -1,19 +1,19 @@
 require("../../style/all.scss");
 import 'react-fastclick';
 import $ from 'jquery';
-import {main} from '../hana_jquery';
 
 var React = require('react');
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { render } from 'react-dom';
+import thunk from 'redux-thunk';
+import { main } from '../hana_jquery';
 
 import hanaApp from '../reducers';
-import { render } from 'react-dom';
 import { AppContainer } from "../components/app.jsx";
 import { getCompanyDataInYear } from "../query.js";
-import thunk from 'redux-thunk';
-import {LineChartsContainer} from '../components/line_charts.jsx';
+
 let store = createStore(
     hanaApp,
     applyMiddleware(thunk)

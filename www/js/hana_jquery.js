@@ -2,6 +2,7 @@ export const main = () => {
 
     $(document).on('click', '.Toggle-sideBar', function() {
 
+        /*
         let $body = $('body');
 
         if( $body.css("margin-left") =='250px' ) {
@@ -10,6 +11,7 @@ export const main = () => {
         else {
             $body.animate({ 'margin-left': '250px', 'margin-right': '-250px' }, 100);
         }
+        */
     });
 
 };

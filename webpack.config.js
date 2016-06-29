@@ -3,8 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     devtool: "#inline-source-map",
     entry: {
-        vendors: ['react', 'jquery'],
-        hana: "./www/js/hana.jsx",
+        vendors: ['react', 'jquery', 'redux', 'react-redux','redux-thunk', 'react-dom'],
         login: "./www/js/pages/login.jsx"
     },
     output: {
