@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {makeTrendStateKey} from "../keys.js";
 import  * as trendAction from '../actions/trend_action';
 import {translateCategory} from "../translateCategory.js";
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 
 class Label extends React.Component{
@@ -95,8 +94,7 @@ class CurrentChart extends React.Component{
                 </div>
 
                 <div className="col-xs-9">
-                    <div className={bar} style={{width: widthPercent + '%', transition: transition}}>
-                    </div>
+                    <div className={bar} style={{width: widthPercent + '%', transition: transition}}> </div>
                 </div>
             </div>
         );

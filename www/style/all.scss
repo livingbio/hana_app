@@ -9,6 +9,7 @@ $opacity: 0.69;
 
 @import "components/drawer";
 @import "components/line-chart";
+@import "components/nav-bar";
 
 
 .Background-blue{
@@ -33,10 +34,6 @@ $opacity: 0.69;
     color: $color-orange;
 }
 
-.Bar{
-    margin-bottom: 10px;
-    text-align: center;
-}
 
 .Nav-title{
     font-size:17px;

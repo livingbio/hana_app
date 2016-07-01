@@ -21,7 +21,7 @@ export class NavBar extends React.Component{
                         {name}
                     </div>
 
-                    <div className="col-xs-2 col-xs-offset-2 Toggle-filter" onClick={()=>{
+                    <div className="col-xs-2 col-xs-offset-2" style={{paddingTop:"1px"}} onClick={()=>{
                         onRightButtonClick();
                     }}>
                         <img src="img/icon-filter@3x.png" width="22" height="14" />

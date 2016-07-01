@@ -15,7 +15,7 @@ export class Drawer extends React.Component{
         const open = this.props.open;
 
         return(
-            <MotionDrawer open={open} width={270} onChange={(isOpen)=>{
+            <MotionDrawer open={open} width={260} onChange={(isOpen)=>{
                 setupDrawer(isOpen);
             }}>
                 <div className="drawer">
@@ -28,7 +28,7 @@ export class Drawer extends React.Component{
                         </div>
                     </div>
 
-                    <div className="" onClick={logOutCallback}>
+                    <div style={{marginTop: "20px"}} className="" onClick={logOutCallback}>
                         Log out
                     </div>
                 </div>

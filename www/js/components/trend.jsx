@@ -1,15 +1,12 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
-
 import {DrawerContainer} from "./drawer.jsx"
-import {Filter} from "./filter.jsx"
 import {NavBarContainer} from "./nav_bar.jsx"
 import {NumberItem} from "./number_item.jsx"
-import {LineCharts} from "./line_charts.jsx"
-import {LineChartsContainer} from './line_charts.jsx';
+import {LineChartsContainer} from './line_charts.jsx'
 
-import {makeTrendStateKey} from "../keys.js";
+import {makeTrendStateKey} from "../keys.js"
 
 
 
@@ -22,10 +19,12 @@ export class Trend extends React.Component{
 
         return(
             <div>
+
                 <DrawerContainer user={user} />
-                <div id="main">
+
+                <div>
                     <NavBarContainer />
-                    <div className="container">
+                    <div className="container" style={{marginTop: "20px"}}>
                         <NumberItem data={numberItem} />
                         <LineChartsContainer/>
                     </div>
