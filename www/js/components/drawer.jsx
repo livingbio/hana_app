@@ -1,5 +1,7 @@
 var React = require('react');
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {default as MotionDrawer} from 'react-motion-drawer';
+import * as drawActions from "../actions/drawer";
 import {navigateToLogin} from '../actions/navigation.js';
 
 
@@ -8,30 +10,40 @@ export class Drawer extends React.Component{
     render(){
 
         const logOutCallback = this.props.logOutCallback;
+        const setupDrawer = this.props.setupDrawer;
+        const user = this.props.user;
+        const open = this.props.open;
 
         return(
-            <div id="sideBar">
-                <div className="row Profile">
-                    <div className="col-xs-1">
-                        <img src="img/icon_profile@3x.png" width="26" height="26"/>
+            <MotionDrawer open={open} width={260} onChange={(isOpen)=>{
+                setupDrawer(isOpen);
+            }}>
+                <div className="drawer">
+                    <div className="row">
+                        <div className="col-xs-1">
+                            <img src="img/icon_profile@3x.png" width="26" height="26"/>
+                        </div>
+                        <div className="col-xs-10 Profile-ID">
+                            {user}
+                        </div>
                     </div>
-                    <div className="col-xs-10 Profile-ID">
-                        {this.props.user}
+
+                    <div style={{marginTop: "20px"}} className="" onClick={logOutCallback}>
+                        Log out
                     </div>
                 </div>
 
-                <div className="" onClick={logOutCallback}>
-                    Log out
-                </div>
-            </div>
+            </MotionDrawer>
         );
     }
-};
+}
 
 
 const mapStateToProps = (state, ownProps) => {
+    const drawer = state.drawer;
     return {
-        ...ownProps
+        ...ownProps,
+        open: drawer.open
     };
 };
 
@@ -44,6 +56,9 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({
                 type: "LOGOUT"
             });
+        },
+        setupDrawer: (isOpen) => {
+            dispatch(drawActions.setupDrawer({open:isOpen}))
         }
     };
 };

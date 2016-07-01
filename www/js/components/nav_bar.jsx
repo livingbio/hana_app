@@ -1,5 +1,6 @@
 var React = require('react');
-import * as filter_actions from "../actions/filter_actions";
+import * as filterActions from "../actions/filter_actions";
+import * as drawActions from "../actions/drawer";
 import {connect} from 'react-redux'
 
 export class NavBar extends React.Component{
@@ -7,11 +8,12 @@ export class NavBar extends React.Component{
 
         let name = this.props.name;
         let onRightButtonClick = this.props.onRightButtonClick;
+        let onLeftButtonClick = this.props.onLeftButtonClick;
 
         return(
             <div className="Bar">
                 <div className="row">
-                    <div className="col-xs-2 Toggle-sideBar">
+                    <div className="col-xs-2 " onClick={onLeftButtonClick}>
                         <img src="img/icon-bar@3x.png" width="22" height="14" />
                     </div>
 
@@ -19,7 +21,7 @@ export class NavBar extends React.Component{
                         {name}
                     </div>
 
-                    <div className="col-xs-2 col-xs-offset-2 Toggle-filter" onClick={()=>{
+                    <div className="col-xs-2 col-xs-offset-2" style={{paddingTop:"1px"}} onClick={()=>{
                         onRightButtonClick();
                     }}>
                         <img src="img/icon-filter@3x.png" width="22" height="14" />
@@ -42,7 +44,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onRightButtonClick: () => {
-            dispatch(filter_actions.showFilter());
+            dispatch(filterActions.showFilter());
+        },
+        onLeftButtonClick: () => {
+            dispatch(drawActions.toggleDrawer())
         }
     };
 };

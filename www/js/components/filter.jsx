@@ -44,6 +44,26 @@ export class Filter extends React.Component{
                         <div className="row">
                             <div className="col-xs-6">
                                 <div className="form-group Form-item">
+                                    <label className="sr-only" htmlFor="queryMonth">Month</label>
+                                    <select className="form-control Filter-input selectpicker"
+
+                                            defaultValue={selectedComparison}
+
+                                            ref={ node => {
+                                                comparisonNode = node
+                                            }}
+                                            name="month">
+                                        {comparisons.map((comparison, id)=>{
+                                            return (<option key={id} value={comparison[0]} >{comparison[1]}</option>)
+                                        })}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="col-xs-6">
+                                {
+                                }
+                                <div className="form-group Form-item">
                                     <label className="sr-only" htmlFor="queryYear">Year</label>
 
                                     <select className="form-control Filter-input selectpicker"
@@ -62,23 +82,6 @@ export class Filter extends React.Component{
                                 </div>
                             </div>
 
-                            <div className="col-xs-6">
-                                <div className="form-group Form-item">
-                                    <label className="sr-only" htmlFor="queryMonth">Month</label>
-                                    <select className="form-control Filter-input selectpicker"
-
-                                            defaultValue={selectedComparison}
-
-                                            ref={ node => {
-                                                comparisonNode = node
-                                            }}
-                                            name="month">
-                                        {comparisons.map((comparison, id)=>{
-                                            return (<option key={id} value={comparison[0]} >{comparison[1]}</option>)
-                                        })}
-                                   </select>
-                                </div>
-                            </div>
 
                             <div className="col-xs-12">
                                 <div className="form-group Form-item">
