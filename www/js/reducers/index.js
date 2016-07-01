@@ -4,6 +4,7 @@ import { filter } from "./filter.js"
 import { navigation } from "./navigation.js"
 import { trend } from "./trend.js"
 import { drawer } from "./drawer.js"
+import { persist } from "./persist.js"
 
 
 const hanaApp = combineReducers({
@@ -11,7 +12,8 @@ const hanaApp = combineReducers({
     authentication,
     filter,
     navigation,
-    trend
+    trend,
+    persist
 });
 
 
