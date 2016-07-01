@@ -1,8 +1,8 @@
 var React = require('react');
 import {connect} from 'react-redux'
 
-import {loginSuccess, loginIntegrityCheck, loginFail, confirmLogin} from "../actions"
-import {years} from "../query.js"
+import { confirmLogin } from "../actions"
+import { saveToStore } from "../actions/persist_actions"
 
 
 export class Login extends React.Component{
@@ -12,8 +12,12 @@ export class Login extends React.Component{
         let onLoginSubmit = this.props.onLoginSubmit;
         let status = this.props.status;
 
+        let user = this.props.user;
+        let password = this.props.password;
+
         let user_node;
         let password_node;
+        let save_credential;
 
 
         let helpText = "";
@@ -50,13 +54,14 @@ export class Login extends React.Component{
 
                         <form onSubmit={e=>{
                                e.preventDefault();
-                               onLoginSubmit(user_node.value.trim(), password_node.value.trim());
+                               onLoginSubmit(user_node.value.trim(), password_node.value.trim(), save_credential.checked);
                                return false;
                             }}>
 
                             <div className="form-group Form-item">
 
                                 <input type="text" className="form-control Login-input"  placeholder="Username"
+                                       defaultValue={user}
                                        ref={ node => {
                                         user_node = node
                                    }} />
@@ -65,10 +70,18 @@ export class Login extends React.Component{
 
                             <div className="form-group Form-item">
                                 <input type="password" className="form-control Login-input"  placeholder="Password"
+                                       defaultValue={password}
                                        ref={ node => {
                                         password_node = node
                                     }} />
                             </div>
+
+                                <div class="checkbox">
+                                  <label className='Login-input' style={{fontSize: '14px'}}><input type="checkbox"
+                                         ref={ node => {
+                                               save_credential = node
+                                  }}/> 記住帳密 </label>
+                                </div>
 
                             <div className="row">
                                 <div className="col-xs-12">
@@ -92,7 +105,10 @@ export class Login extends React.Component{
 
 const mapStateToProps = (state) => {
     const authentication = state.authentication;
+    const persist = state.persist;
     return {
+        user: persist.user,
+        password: persist.password,
         status: authentication.status
     };
 };
@@ -100,10 +116,16 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onLoginSubmit: (user, password) => {
+        onLoginSubmit: (user, password, checked) => {
             console.log('user');
             console.log(user);
             dispatch(confirmLogin({user, password}));
+
+            if(checked){
+                dispatch(saveToStore({key:'user', value: user}));
+                dispatch(saveToStore({key:'password', value: password}));
+            }
+
         }
     };
 };
