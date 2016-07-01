@@ -12,7 +12,6 @@ import { main } from '../hana_jquery';
 
 import hanaApp from '../reducers';
 import { AppContainer } from "../components/app.jsx";
-import { getCompanyDataInYear } from "../query.js";
 
 
 let store = createStore(
