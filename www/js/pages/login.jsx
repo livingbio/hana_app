@@ -1,8 +1,9 @@
 require("../../style/all.scss");
 import 'react-fastclick';
-import $ from 'jquery';
 
 var React = require('react');
+var away = require('away');
+import {navigateToLogin} from '../actions/navigation.js';
 import persistState from 'redux-localstorage'
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -25,6 +26,16 @@ let store = createStore(
 
 //getCompanyDataInYear({user:"DEV01", password:"LeadTek01", sbg:"IIoT", year:"2015"});
 
+const idle = () => {
+    console.log("logout");
+
+    store.dispatch(navigateToLogin());
+
+    store.dispatch({
+        type: "LOGOUT"
+    })
+};
+
 render(
     <Provider store={store}>
         <AppContainer/>
@@ -32,4 +43,5 @@ render(
     document.getElementById("main")
 );
 
-
+let timer = away(20* 60* 1000);
+timer.on('idle', idle);

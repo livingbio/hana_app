@@ -4,27 +4,33 @@ import {LoginContainer} from "./login.jsx";
 import {TrendContainer} from "./trend.jsx";
 import {FilterContainer} from "./filter.jsx";
 
+export class App extends React.Component{
+    render() {
 
-export const App = ({page}) => {
+        let page = this.props.page;
+        let idle = this.props.idle;
 
-    if( page === 'login'){
-        return <LoginContainer />
-    }
-    else if( page==='filter'){
-        return <FilterContainer />
-    }
-    else {
-        return (<TrendContainer />)
-    }
+        if( page === 'login'){
+            return <LoginContainer />
+        }
+        else if( page==='filter'){
+            return <FilterContainer />
+        }
+        else {
+            return (
+                    <TrendContainer />
+            )
+        }
 
-};
+    }
+}
 
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        ...ownProps,
         page: state.navigation.page
     };
 };
-
 
 export const AppContainer = connect(mapStateToProps)(App);

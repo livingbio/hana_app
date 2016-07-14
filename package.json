@@ -14,6 +14,7 @@
     "style-loader": "^0.13.1"
   },
   "devDependencies": {
+    "away": "^1.0.0",
     "babel-core": "^6.9.1",
     "babel-jest": "^12.1.0",
     "babel-loader": "^6.2.4",
