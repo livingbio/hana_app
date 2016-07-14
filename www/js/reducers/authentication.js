@@ -6,6 +6,8 @@ export const authentication = (state={}, action) => {
 
 
     console.log("handle authentication");
+    console.log(action);
+
     switch (action.type){
         case "LOGIN_INTEGRITY_CHECK":
             if (!action.user.length){
@@ -24,7 +26,17 @@ export const authentication = (state={}, action) => {
                     password: action.password
                 }
             }
+
             break;
+
+        case "LOGIN_START":
+
+            return {
+                ...state,
+                user: action.user,
+                password: action.password,
+                status: "LOGGING"
+            };
 
         case "LOGIN_SUCCESS":
             return {

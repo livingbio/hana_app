@@ -25,6 +25,8 @@ export const confirmLogin = ({user, password}) => {
 
         let promise = dao.years({user, password});
 
+        dispatch(startLogin(name,password));
+
         promise
             .then((data) =>{
                 console.log('success of year api');
@@ -48,3 +50,9 @@ export const loginIntegrityCheck = (user, password) => {
     }
 };
 
+
+export const startLogin = () => {
+    return {
+        type: "LOGIN_START"
+    }
+};

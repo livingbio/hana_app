@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { render } from 'react-dom';
 import thunk from 'redux-thunk';
-import { main } from '../hana_jquery';
 
 import hanaApp from '../reducers';
 import { AppContainer } from "../components/app.jsx";
@@ -33,13 +32,4 @@ render(
     document.getElementById("main")
 );
 
-/*
-render(
-    <Provider store={store}>
-        <LineChartsContainer/>
-    </Provider>,
-    document.getElementById("main")
-);
- */
 
-$(document).ready(main);

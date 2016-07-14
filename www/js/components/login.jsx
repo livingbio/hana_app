@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 
 import { confirmLogin } from "../actions"
 import { saveToStore } from "../actions/persist_actions"
+var Spinner = require('react-spinkit');
+
 
 
 export class Login extends React.Component{
@@ -33,6 +35,9 @@ export class Login extends React.Component{
                 helpText = "帳密有錯";
                 break;
         }
+
+        console.log('=== status');
+        console.log(status);
 
         return(
             <div>
@@ -89,9 +94,21 @@ export class Login extends React.Component{
                                 </div>
                             </div>
 
+
                             <div className="row">
-                                <div className="col-xs-12">
+                                <div className="col-xs-12 relative" >
                                     <button type="submit" className="btn btn-default Login-button">LOG IN</button>
+                                    {(() => {
+                                        if(status == "LOGGING") {
+                                            return (
+                                                <div className="row" style={{position: "absolute", top: "10px", left: '30px'}} >
+                                                    <div className="col-xs-12">
+                                                        <Spinner spinnerName='pulse' />
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+                                    })()}
                                 </div>
                             </div>
                         </form>
