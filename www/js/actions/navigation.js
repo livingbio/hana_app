@@ -1,5 +1,3 @@
-import * as dao from "../query";
-
 export const navigateToFilter = () => {
     return {
         type: "PAGE_NAVIGATION",

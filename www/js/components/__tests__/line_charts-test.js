@@ -1,8 +1,8 @@
-jest.unmock('../components/number_item');
+jest.unmock('../number_item');
 'use strict';
 
 import React from 'react';
-import {LineCharts} from '../components/line_charts.jsx';
+import {LineCharts} from '../line_charts.jsx';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 

@@ -204,24 +204,6 @@ export class LineCharts extends React.Component{
     }
 }
 
-class MultiLineCharts extends React.Component{
-    render(){
-        var blocks = [];
-        var dataList = this.props.dataList;
-
-        for (var label in dataList[0].detail) {
-            blocks.push(<LineCharts dataList={dataList} label={label}/>);
-            console.log(label);
-        }
-
-        return(
-            <div>
-                {blocks}
-            </div>
-        );
-    }
-}
-
 
 
 const mapStateToProps = (state) => {

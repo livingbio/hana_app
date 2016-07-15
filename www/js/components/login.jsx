@@ -36,9 +36,6 @@ export class Login extends React.Component{
                 break;
         }
 
-        console.log('=== status');
-        console.log(status);
-
         return(
             <div>
 

@@ -6,10 +6,6 @@ export const drawer = (
 
 ) => {
 
-    console.log("handle drawer event");
-    console.log(action);
-    console.log(state);
-
     switch (action.type) {
 
         case "DRAWER_SETUP_OPEN":

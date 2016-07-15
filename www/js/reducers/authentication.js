@@ -4,13 +4,9 @@
 
 export const authentication = (state={}, action) => {
 
-
-    console.log("handle authentication");
-    console.log(action);
-
     switch (action.type){
         case "LOGIN_INTEGRITY_CHECK":
-            if (!action.user.length){
+            if (action.user.length == 0){
                 return {
                     authorized: false,
                     status: "USER_NAME_EMPTY",
@@ -18,7 +14,7 @@ export const authentication = (state={}, action) => {
                     password: action.password
                 }
             }
-            else if (!action.password.length){
+            else if (action.password.length == 0){
                 return {
                     authorized: false,
                     status: "PASSWORD_EMPTY",
@@ -26,8 +22,6 @@ export const authentication = (state={}, action) => {
                     password: action.password
                 }
             }
-
-            break;
 
         case "LOGIN_START":
 

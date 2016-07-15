@@ -1,8 +1,8 @@
-jest.unmock('../components/filter');
+jest.unmock('../filter');
 'use strict';
 
 import React from 'react';
-import {Filter} from '../components/filter.jsx';
+import {Filter} from '../filter.jsx';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 

@@ -1,17 +1,17 @@
-jest.unmock('../components/drawer');
+jest.unmock('../drawer');
 'use strict';
 
 import React from 'react';
-import Drawer from '../components/drawer';
+import {Drawer} from '../drawer';
 import {expect} from 'chai';
 import {shallow, mount} from 'enzyme';
 
 describe('Drawer Component', () => {
 
-    it('should have idName sideBar', ()=>{
+    it('should have drawer ', ()=>{
 
         const wrapper = shallow(<Drawer profileID="GliaCloud"/>);
-        expect(wrapper.find('#sideBar')).to.have.length(1);
+        expect(wrapper.find('.drawer')).to.have.length(1);
 
     });
 
