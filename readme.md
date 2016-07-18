@@ -22,12 +22,12 @@ after that, open terminal and do the following commands
 Make your chrome can issue ajax request:
 
     1. npm run watch
-    1. open -n -a  /Applications/Google\ Chrome.app  --args  --user-data-dir="/tmp/" --disable-web-security  # form mac
-    2. open index.html directly with the chrome
+    2. open -n -a  /Applications/Google\ Chrome.app  --args  --user-data-dir="/tmp/" --disable-web-security  # form mac
+    3. open index.html directly with the previous chrome
 
 release 
 
-    we build with [cordova build](build.phonegap.com).  just zip directory www. and send the zip to cordova build is very easily, if you want to build by your self, please contact tim or andy to be a phonegap collaborator 
+  we build with [cordova build](build.phonegap.com).  just zip directory www. and send the zip to cordova build is very easily, if you want to build by your self, please contact tim or andy to be a phonegap collaborator 
 
 to unit test:
 
